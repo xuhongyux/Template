@@ -1,0 +1,3 @@
+# Project exclude paths
+/demo/oauth2/target/
+/oauth/target/
