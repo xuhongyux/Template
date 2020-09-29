@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>demo</artifactId>
-
+    <packaging>pom</packaging>
     <modules>
         <module>oauth2</module>
     </modules>

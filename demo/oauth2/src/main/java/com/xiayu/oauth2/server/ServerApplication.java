@@ -14,5 +14,5 @@ public class ServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ServerApplication.class, args);
     }
-
+    //http://localhost:8080/oauth/authorize?client_id=client&response_type=code
 }

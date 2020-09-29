@@ -67,14 +67,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         return new JdbcClientDetailsService(dataSource());
     }
 
-/*    //配置为授权服务器
+   //配置为授权服务器
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 // 允许客户端访问 /oauth/check_token 检查 token
                 .checkTokenAccess("isAuthenticated()")
                 .allowFormAuthenticationForClients();
-    }*/
+    }
 
 
     @Override
