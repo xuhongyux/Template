@@ -85,10 +85,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .tokenStore(tokenStore());
     }
 
-    //配置客户端
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        // 客户端配置
+        // 读取客户端配置
         clients.withClientDetails(jdbcClientDetailsService());
     }
 

@@ -1,14 +1,12 @@
 package com.xiayu.oauth;
 
+import com.xiayu.configuration.Swagger2Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@EnableDiscoveryClient
-@EnableFeignClients
-@SpringBootApplication
+
+@SpringBootApplication(scanBasePackageClasses = {OauthApplication.class,Swagger2Configuration.class})
 @MapperScan(value = "com.xiayu.oauth.mapper")
 public class OauthApplication {
 

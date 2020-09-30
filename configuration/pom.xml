@@ -10,4 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>configuration</artifactId>
+    <modules>
+        <module>configuration-swagger2</module>
+    </modules>
 </project>

@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true,jsr250Enabled = true) //拦截器
-public class WebsecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     //设置默认加密方式
     @Bean
@@ -32,7 +32,7 @@ public class WebsecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-/*    @Override
+ /*  @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 使用自定义认证与授权
         auth.userDetailsService(userDetailsService());

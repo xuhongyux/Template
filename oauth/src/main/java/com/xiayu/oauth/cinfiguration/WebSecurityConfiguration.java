@@ -24,7 +24,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @Configuration
 @EnableWebSecurity
-//@EnableResourceServer
+@EnableResourceServer//开启资源认证
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -34,6 +34,20 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    @Override
+    protected UserDetailsService userDetailsService() {
+        //创建一个用户信息
+        return new UserDetailsServiceImpl();
+    }
+
+    //自定义用户
+ /*   @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService());
+    }*/
+
+    //基于内存用户
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws  Exception{
         auth.inMemoryAuthentication()
@@ -42,29 +56,17 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // 将 check_token 暴露出去，否则资源服务器访问时报 403 错误
-        web.ignoring().antMatchers("/oauth/check_token");
+        // 开放的接口
+        web.ignoring().antMatchers(
+                //登录验证的接口
+                "/oauth/check_token","/user/login","/user/loginSms","/user/getLoginValidation","/user/logout","/user/jwt",
+                //Swagger的接口
+                "/v2/api-docs","/swagger-ui.html#", "/swagger-resources/configuration/ui", "/swagger-resources","/swagger-resources/configuration/security", "/swagger-ui.html","/css/**", "/js/**","/images/**", "/webjars/**", "**/favicon.ico", "/index");
     }
 
-    @Bean
-    @Override
-    protected UserDetailsService userDetailsService() {
-        //创建一个用户信息
-        return new UserDetailsServiceImpl();
-    }
 
-/*
 
-    @Bean
-    @Override
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-        return new UserDetailsServiceImpl();
-    }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
-    }*/
 /*
     *//**
      * 用于支持 password 模式
@@ -78,20 +80,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }*/
 
-   // @Override
-    /**
-     * //拦截所有访问
-     *  web.ignoring().antMatchers("*");
-     */
-    //public void configure(WebSecurity web) throws Exception {
-        //开放的接口
-     //   web.ignoring()
-      //          .antMatchers("/user/login","/user/loginSms","/user/getLoginValidation","/userlogout","/userjwt","/v2/api-docs", "/swagger-resources/configuration/ui",
-     //                   "/swagger-resources","/swagger-resources/configuration/security","/user/logout",
-    //                    "/swagger-ui.html","/css/**", "/js/**","/images/**", "/webjars/**", "**/favicon.ico", "/index");
-  //  }
 
-/*    @Override
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.exceptionHandling()
                 .and()
@@ -102,6 +93,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // 授权访问
                 .antMatchers("/user/info").hasAuthority("USER")
                 .antMatchers("/user/logout").hasAuthority("USER");
-    }*/
+    }
 
 }

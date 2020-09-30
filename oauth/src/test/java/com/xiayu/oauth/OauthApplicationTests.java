@@ -1,13 +1,24 @@
 package com.xiayu.oauth;
 
+import com.xiayu.provider.api.UserService;
+import com.xiayu.provider.domain.TestUser;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.apache.dubbo.config.annotation.Reference;
 
 @SpringBootTest
 class OauthApplicationTests {
 
+    @Reference(version ="1.0.0")
+    private UserService userService;
+
+    /**
+     * 测试服务间调用
+     */
     @Test
     void contextLoads() {
+        TestUser user = userService.getUser();
+        System.out.println(user.toString());
     }
 
 }
