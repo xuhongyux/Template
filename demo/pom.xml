@@ -13,5 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>oauth2</module>
+        <module>gensql</module>
     </modules>
 </project>

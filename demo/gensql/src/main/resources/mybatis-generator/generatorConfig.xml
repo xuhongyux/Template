@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <properties resource="mybatis-generator/mybatisGeneratorinit.properties"/>
+    <!--classPathEntry:数据库的JDBC驱动,换成你自己的驱动位置 可选 -->
+    <!--<classPathEntry location="D:\generator_mybatis\mysql-connector-java-5.1.24-bin.jar" /> -->
+
+    <!-- 一个数据库一个context -->
+    <!--defaultModelType="flat" 大数据字段，不分表 -->
+    <!--
+    context:生成一组对象的环境
+    id:必选，上下文id，用于在生成错误时提示
+    defaultModelType:指定生成对象的样式
+        1，conditional：类似hierarchical；
+        2，flat：所有内容（主键，blob）等全部生成在一个对象中；
+        3，hierarchical：主键生成一个XXKey对象(key class)，Blob等单独生成一个对象，其他简单属性在一个对象中(record class)
+    targetRuntime:
+        1，MyBatis3：默认的值，生成基于MyBatis3.x以上版本的内容，包括XXXBySample；
+        2，MyBatis3Simple：类似MyBatis3，只是不生成XXXBySample；
+    introspectedColumnImpl：类全限定名，用于扩展MBG
+-->
+    <context id="MysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="utf-8"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
+
+        <!--MySql批量更新-->
+        <plugin type="com.itfsw.mybatis.generator.plugins.MysqlBatchUpdatePlugin"></plugin>
+
+        <!--https://github.com/itfsw/mybatis-generator-plugin-->
+        <!-- 查询单条数据插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!-- MySQL分页插件 从0页开始 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin"/>
+        <!-- 数据Model链式构建插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin"/>
+        <!-- Example Criteria 增强插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin">
+            <!-- 是否支持已经过时的andIf方法（推荐使用when代替），默认支持 -->
+            <property name="enableAndIf" value="true"/>
+        </plugin>
+        <!-- Example 目标包修改插件 -->
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">-->
+        <!-- 修改Example类生成到目标包下 -->
+        <!--<property name="targetPackage" value="com.itfsw.mybatis.generator.dao.example"/>-->
+        <!--</plugin>-->
+        <!-- 批量插入插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+            <!--
+            开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能
+            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
+            -->
+            <!--            <property name="allowMultiQueries" value="true"/>-->
+        </plugin>
+
+        <!-- 逻辑删除插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin">
+            <!-- 这里配置的是全局逻辑删除列和逻辑删除值，当然在table中配置的值会覆盖该全局配置 -->
+            <!-- 逻辑删除列类型只能为数字、字符串或者布尔类型 -->
+            <property name="logicalDeleteColumn" value="del_flag"/>
+            <!-- 逻辑删除-已删除值 -->
+            <property name="logicalDeleteValue" value="1"/>
+            <!-- 逻辑删除-未删除值 -->
+            <property name="logicalUnDeleteValue" value="0"/>
+            <!-- 逻辑删除常量名称，不配置默认为 IS_DELETED -->
+            <property name="logicalDeleteConstName" value="IS_DELETED"/>
+            <!-- 逻辑删除常量（未删除）名称，不配置默认为 NOT_DELETED -->
+            <property name="logicalUnDeleteConstName" value="NOT_DELETED"/>
+        </plugin>
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <!-- 存在即更新插件 -->
+        <!--        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">-->
+        <!--            &lt;!&ndash;-->
+        <!--            支持upsertByExample，upsertByExampleSelective操作-->
+        <!--            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启-->
+        <!--            &ndash;&gt;-->
+        <!--            <property name="allowMultiQueries" value="true"/>-->
+        <!--            &lt;!&ndash;-->
+        <!--            开启批量功能，支持batchUpsert,batchUpsertWithBLOBs,batchUpserSelective-->
+        <!--            ！这几个方法中无法支持IncrementsPlugin的方法！插件默认不开启-->
+        <!--            &ndash;&gt;-->
+        <!--            <property name="allowBatchUpsert" value="true"/>-->
+        <!--        </plugin>-->
+        <!-- Selective选择插入更新增强插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectiveEnhancedPlugin"/>
+        <!-- Table增加前缀插件 -->
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.TablePrefixPlugin">-->
+        <!-- 这里配置的是全局表前缀，当然在table中配置的值会覆盖该全局配置 -->
+        <!--<property name="prefix" value="Cm"/>-->
+        <!--</plugin>-->
+        <!-- Table重命名插件 -->
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.TableRenamePlugin">-->
+        <!-- 可根据具体需求确定是否配置 -->
+        <!--<property name="searchString" value="^T"/>-->
+        <!--<property name="replaceString" value=""/>-->
+        <!--</plugin>-->
+        <!-- 自定义注释插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.CommentPlugin">
+            <!-- 自定义模板路径 -->
+            <property name="template" value="src/main/resources/mybatis-generator/mybatis-generator-comment.ftl"/>
+        </plugin>
+        <!-- 增量插件 -->
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.IncrementsPlugin" />-->
+        <!-- 查询结果选择性返回插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin"/>
+        <!-- 乐观锁插件 -->
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.OptimisticLockerPlugin">-->
+        <!--&lt;!&ndash;是否启用自定义nextVersion，默认不启用(插件会默认使用sql的 set column = column + 1) &ndash;&gt;-->
+        <!--<property name="customizedNextVersion" value="false"/>-->
+        <!--</plugin>-->
+        <!-- 表重命名配置插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.TableRenameConfigurationPlugin">
+            <!--表名-->
+            <!--<property name="domainObjectRenamingRule.searchString" value="^T"/>-->
+            <!--<property name="domainObjectRenamingRule.replaceString" value=""/>-->
+            <!-- 需要注意，这里的正则和官方一样是比对替换都是原始表的column名称 -->
+            <!--<property name="columnRenamingRule.searchString" value="^f_"/>-->
+            <!--<property name="columnRenamingRule.replaceString" value="_"/>-->
+            <!-- TbMapper -> TbDao, TbMapper.xml -> TbDao.xml -->
+            <property name="clientSuffix" value="Dao"/>
+            <!-- TbExmaple -> TbQuery -->
+            <property name="exampleSuffix" value="PoQuery"/>
+            <!-- Tb -> TbEntity -->
+            <property name="modelSuffix" value="Po"/>
+        </plugin>
+        <!-- Lombok插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LombokPlugin">
+            <!-- @Builder 必须在 Lombok 版本 >= 1.18.2 的情况下 -->
+            <property name="@Builder" value="false"/>
+            <!-- @NoArgsConstructor 和 @AllArgsConstructor 使用规则和Lombok一致 -->
+            <property name="@AllArgsConstructor" value="false"/>
+            <property name="@NoArgsConstructor" value="false"/>
+        </plugin>
+        <!-- 数据ModelCloneable插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelCloneablePlugin"/>
+        <!-- 状态枚举生成插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.EnumTypeStatusPlugin">
+            <!-- 这里可以定义全局需要检查生成枚举类的列名 -->
+            <!--注释[success(0):成功, fail(1):失败]-->
+            <!--<property name="enumColumns" value="type, status"/>-->
+        </plugin>
+
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true"/> <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="${jdbc_driver}" connectionURL="${jdbc_url}" userId="${jdbc_user}" password="${jdbc_password}"/>
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="${po_target}"
+                            targetProject="${project}">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="${mapper_target}"
+                         targetProject="${resources}">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="${dao_target}"
+                             targetProject="${project}">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--//todo 需要生成表格名称-->
+
+
+
+
+        <table schema="" tableName="student_point_name"></table>
+
+
+
+
+
+
+
+    </context>
+</generatorConfiguration>
+
