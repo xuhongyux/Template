@@ -1,6 +1,9 @@
 package com.xiayu.provider.api;
 
 import com.xiayu.provider.domain.TestUser;
+import com.xiayu.provider.domain.User;
+
+import java.util.List;
 
 /**
  * Description:
@@ -15,4 +18,6 @@ public interface UserService {
      * @return
      */
     TestUser getUser();
+
+    List<User> getUsers();
 }

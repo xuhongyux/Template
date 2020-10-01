@@ -200,12 +200,6 @@
         <!--projects begin-->
         <dependency>
             <groupId>com.xiayu</groupId>
-            <artifactId>commons-utils</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.xiayu</groupId>
             <artifactId>provider-user</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
@@ -213,6 +207,12 @@
         <dependency>
             <groupId>com.xiayu</groupId>
             <artifactId>configuration-swagger2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiayu</groupId>
+            <artifactId>commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

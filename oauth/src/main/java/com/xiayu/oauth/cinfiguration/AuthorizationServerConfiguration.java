@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -23,10 +24,11 @@ import javax.sql.DataSource;
  * Description:
  * 配置授权服务
  * 思路
- *  1. 链接数据源，寻找配置数据
- *  2. 将token写入数据库
- *  3. 客户端信息获取
- *  4. 重写configure
+ * 1. 链接数据源，寻找配置数据
+ * 2. 将token写入数据库
+ * 3. 客户端信息获取
+ * 4. 重写configure
+ *
  * @version v1.0.0
  * @Author xiayu
  * @Date 2020/9/28 11:26
@@ -35,9 +37,12 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer //开启授权服务
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
- /*   //注入用于支持 password 模式
+    //注入用于支持 password 模式
     @Autowired
-    private AuthenticationManager authenticationManager;*/
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     // @Autowired
     // private RedisConnectionFactory redisConnectionFactory;
@@ -60,6 +65,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
       /*  // 基于 redis 实现，令牌保存到数据库
         return new RedisTokenStore(redisConnectionFactory);*/
     }
+
     //3.获取客户端信息
     @Bean
     public ClientDetailsService jdbcClientDetailsService() {
@@ -67,7 +73,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         return new JdbcClientDetailsService(dataSource());
     }
 
-   //配置为授权服务器
+    //配置为授权服务器
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
@@ -81,8 +87,11 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
                 // 用于支持密码模式
-                //.authenticationManager(authenticationManager)
-                .tokenStore(tokenStore());
+                .authenticationManager(authenticationManager)
+                //token到数据库中
+                .tokenStore(tokenStore())
+                //该字段设置设置refresh token是否重复使用,true:reuse;false:no reuse.
+                .reuseRefreshTokens(true);
     }
 
 
@@ -90,6 +99,18 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 读取客户端配置
         clients.withClientDetails(jdbcClientDetailsService());
+
+        //基于内存
+       /* clients
+                .inMemory()
+                .withClient("client")
+                .secret(passwordEncoder.encode("secret"))
+                .authorizedGrantTypes("password", "refresh_token")
+                .scopes("backend")
+                .resourceIds("backend-resources")
+                .accessTokenValiditySeconds(60 * 60 * 24)
+                .refreshTokenValiditySeconds(60 * 60 * 24 * 30);
+                */
     }
 
 

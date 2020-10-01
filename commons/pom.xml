@@ -11,11 +11,27 @@
 
     <artifactId>commons</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>utils</module>
-    </modules>
 
     <dependencies>
+        <!--腾讯cos-->
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
 
     </dependencies>
 

@@ -134,6 +134,13 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
+        <!--project -->
+        <dependency>
+            <groupId>com.xiayu</groupId>
+            <artifactId>commons</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

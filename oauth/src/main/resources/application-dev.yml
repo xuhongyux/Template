@@ -41,3 +41,10 @@ dubbo:
       loadbalance: roundrobin  #负载均衡方式  轮循
       # random 随机，roundrobin 轮循，leastactive 最少活跃调用数，consistenthash一致性 Hash
 
+# 外部配置
+oauth2:
+  grant_type: password
+  client_id: client
+  client_secret: secret
+  url_oauth: http://localhost:9000/oauth/token
+

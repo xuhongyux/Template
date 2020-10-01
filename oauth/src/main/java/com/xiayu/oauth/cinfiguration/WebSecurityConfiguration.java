@@ -42,17 +42,23 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     //自定义用户
- /*   @Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService());
-    }*/
-
-    //基于内存用户
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws  Exception{
-        auth.inMemoryAuthentication()
-                .withUser("admin").password(passwordEncoder().encode("123456")).roles("ADMIN");
     }
+
+    /**
+     * 用于支持 password 模式
+     *
+     * @return
+     * @throws Exception
+     */
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -63,23 +69,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //Swagger的接口
                 "/v2/api-docs","/swagger-ui.html#", "/swagger-resources/configuration/ui", "/swagger-resources","/swagger-resources/configuration/security", "/swagger-ui.html","/css/**", "/js/**","/images/**", "/webjars/**", "**/favicon.ico", "/index");
     }
-
-
-
-
-/*
-    *//**
-     * 用于支持 password 模式
-     *
-     * @return
-     * @throws Exception
-     *//*
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }*/
-
 
 
     @Override
