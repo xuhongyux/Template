@@ -12,7 +12,7 @@
     <artifactId>demo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>oauth2</module>
-        <module>gensql</module>
+        <!--<module>oauth2</module>
+        <module>gensql</module>-->
     </modules>
 </project>

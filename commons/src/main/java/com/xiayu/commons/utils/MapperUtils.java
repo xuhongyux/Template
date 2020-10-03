@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -670,4 +671,21 @@ public class MapperUtils {
         SimpleDateFormat fmt = new SimpleDateFormat(format);
         return fmt.format(date);
     }
+
+    /**
+     * 初始化PO类
+     * @param source
+     */
+    public static void initEntityPo(Object source) {
+        String uuid = MapperUtils.buildUUID();
+        Date date = new Date();
+        Map map = new HashMap();
+        map.put("id", uuid);
+        map.put("createTime", date);
+        map.put("updateTime", date);
+        map.put("delFlag", 0);
+        BeanUtil.copyPropertiesIgnoreNull(source, map);
+        BeanUtil.copyProperties(map, source);
+    }
+
 }

@@ -31,6 +31,7 @@
         <com.github.pagehelper>1.2.12</com.github.pagehelper>
         <!--腾讯云API-->
         <cos.api.version>5.6.22</cos.api.version>
+        <google.guava.version>20.0</google.guava.version>
     </properties>
 
     <dependencyManagement>
@@ -201,6 +202,12 @@
                 <groupId>com.qcloud</groupId>
                 <artifactId>cos_api</artifactId>
                 <version>${cos.api.version}</version>
+            </dependency>
+            <!--谷歌工具类-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google.guava.version}</version>
             </dependency>
         </dependencies>
 
