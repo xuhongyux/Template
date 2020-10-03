@@ -1,0 +1,8 @@
+com\xiayu\provider\domain\UserExample.class
+com\xiayu\provider\params\UserInsertVo.class
+com\xiayu\provider\domain\UserExample$GeneratedCriteria.class
+com\xiayu\provider\domain\UserPo.class
+com\xiayu\provider\domain\UserExample$Criteria.class
+com\xiayu\provider\api\UserService.class
+com\xiayu\provider\domain\TestUser.class
+com\xiayu\provider\domain\UserExample$Criterion.class

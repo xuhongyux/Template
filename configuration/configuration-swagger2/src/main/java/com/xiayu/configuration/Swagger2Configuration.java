@@ -1,7 +1,12 @@
 package com.xiayu.configuration;
 
+import com.google.common.base.Function;
+import com.google.common.base.Optional;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -28,12 +33,21 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class Swagger2Configuration {
+
+    // 定义分隔符
+    private static final String SPLIT  = ";";
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.xiayu.oauth.controller"))
+                //设置多个扫描包路径
+                //.apis(RequestHandlerSelectors.basePackage("com.xiayu.**.controller"))
+                .apis(Predicates.or(
+                        RequestHandlerSelectors.basePackage("com.xiayu.oauth.controller"),
+                        RequestHandlerSelectors.basePackage("com.xiayu.provider.controller")
+                ))
                 .paths(PathSelectors.any())
                 .build()
                 //设置接口默认的请求头
@@ -61,4 +75,6 @@ public class Swagger2Configuration {
         pars.add(appToken.build());
         return pars;
     }
+
+
 }

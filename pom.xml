@@ -41,6 +41,8 @@
         <module>configuration</module>
         <module>commons</module>
         <module>demo</module>
+        <module>consumers</module>
+        <module>test</module>
     </modules>
 
 
