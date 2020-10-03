@@ -30,6 +30,6 @@ public class UserController {
     @ApiOperation(value = "获取用户", httpMethod ="GET")
     public ResponseResult<UserPo> selectUserByUserName(@PathVariable String userName){
         UserPo userPo = userService.selectUserByName(userName);
-        return  new ResponseResult<>(ResponseResult.CodeStatus.OK,"请求用户信息成功",userPo);
+        return  new ResponseResult<UserPo>(ResponseResult.CodeStatus.OK,"请求用户信息成功",userPo);
     }
 }

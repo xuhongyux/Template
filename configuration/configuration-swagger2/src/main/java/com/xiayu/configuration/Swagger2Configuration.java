@@ -46,6 +46,7 @@ public class Swagger2Configuration {
                 //.apis(RequestHandlerSelectors.basePackage("com.xiayu.**.controller"))
                 .apis(Predicates.or(
                         RequestHandlerSelectors.basePackage("com.xiayu.oauth.controller"),
+                        RequestHandlerSelectors.basePackage("com.xiayu.consumers.controller"),
                         RequestHandlerSelectors.basePackage("com.xiayu.provider.controller")
                 ))
                 .paths(PathSelectors.any())

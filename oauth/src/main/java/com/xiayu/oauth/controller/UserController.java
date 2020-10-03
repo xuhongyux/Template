@@ -73,6 +73,7 @@ public class UserController {
     @ApiOperation(value = "用户登录", httpMethod = "GET")
     @GetMapping (value = "/login")
     public ResponseResult login( String userName,String passWord, HttpServletRequest request){
+        //todo 登录逻辑整理
         // 封装返回的结果集
         Map<String, Object> result = Maps.newHashMap();
         /*
@@ -116,5 +117,11 @@ public class UserController {
         }
         logger.info(userName+"登录成功",userName);
         return new ResponseResult<>(HttpStatus.OK.value(), "登录成功", result);
+    }
+    @ApiOperation(value = "用户注册", httpMethod = "POST")
+    @PostMapping (value = "/login")
+    public ResponseResult<Void> userRegion(){
+        //todo 用户注册
+        return new ResponseResult<>();
     }
 }
