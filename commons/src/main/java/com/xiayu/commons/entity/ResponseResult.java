@@ -1,5 +1,7 @@
 package com.xiayu.commons.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * @Author xiayu
  * @Date 2020/10/1 12:10
  */
-
+@Data
 public class ResponseResult<T> implements Serializable {
 
     private static final long serialVersionUID = 3468352004150968551L;
