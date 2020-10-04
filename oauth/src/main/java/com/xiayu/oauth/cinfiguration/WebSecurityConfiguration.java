@@ -84,4 +84,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/logout").hasAuthority("USER");
     }
 
+    @Bean
+    @Override
+    public UserDetailsService userDetailsServiceBean() throws Exception {
+        return new UserDetailsServiceImpl();
+    }
+
 }

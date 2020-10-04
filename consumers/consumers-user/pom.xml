@@ -80,6 +80,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--用于被nacos发现该服务  被gateway发现-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
 
         <!-- Commons  -->
         <dependency>
