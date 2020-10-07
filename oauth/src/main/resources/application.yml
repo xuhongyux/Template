@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: test
 
 server:
   port: 9000
@@ -9,4 +9,9 @@ mybatis:
   # 实体类的存放路径
   type-aliases-package: com.xiayu.oauth.domain
   mapper-locations: classpath:mapper/*.xml
+
+# jasypt 加密的根（盐）
+jasypt:
+  encryptor:
+    password: xiayu
 

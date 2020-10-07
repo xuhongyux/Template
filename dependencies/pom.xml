@@ -32,6 +32,8 @@
         <!--腾讯云API-->
         <cos.api.version>5.6.22</cos.api.version>
         <google.guava.version>20.0</google.guava.version>
+        <!--Jasypt密码加密-->
+        <jasypt.version>3.0.2</jasypt.version>
     </properties>
 
     <dependencyManagement>
@@ -209,6 +211,13 @@
                 <artifactId>guava</artifactId>
                 <version>${google.guava.version}</version>
             </dependency>
+            <!--Jasypt 密码加密-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>

@@ -61,8 +61,6 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private UserMapper userMapper;
 
     @Reference(version = "1.0.0")
     private UserService userService;
