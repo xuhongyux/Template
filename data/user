@@ -1,0 +1,15 @@
+CREATE TABLE `user` (
+  `id` varchar(32) COLLATE utf8_bin NOT NULL COMMENT 'id',
+  `login_name` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '登录名称',
+  `password` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '账号',
+  `type` int(2) NOT NULL DEFAULT '0' COMMENT '用户类型，0 超级管理员，1 管理员 ，2 操作人员',
+  `tel` varchar(16) COLLATE utf8_bin DEFAULT NULL COMMENT '电话',
+  `user_number` varchar(16) COLLATE utf8_bin DEFAULT NULL COMMENT '编号',
+  `user_status` int(1) NOT NULL DEFAULT '1' COMMENT '用户状态，0 新建，1 正常 ，2 禁用 ，3 注销',
+  `last_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  `del_flag` int(2) NOT NULL COMMENT '删除标志，0 未删除，1 已删除',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE KEY `user_number` (`user_number`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

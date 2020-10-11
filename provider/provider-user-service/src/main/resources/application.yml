@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test
+    active: dev
 mybatis:
   type-aliases-package: com.xiayu.provicer.domain
   mapper-locations: classpath:mapper/*.xml

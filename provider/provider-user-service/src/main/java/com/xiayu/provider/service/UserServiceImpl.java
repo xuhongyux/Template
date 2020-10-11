@@ -1,5 +1,5 @@
 package com.xiayu.provider.service;
-import java.util.Date;
+
 
 
 import com.xiayu.commons.utils.MapperUtils;
@@ -15,8 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-import javax.annotation.Resource;
+
+
 import java.util.List;
+import java.util.Random;
+
 
 /**
  * Description:
@@ -70,7 +73,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void insert(UserInsertVo userInsertVo) {
+    public void insert(UserInsertVo userInsertVo)  {
+
+        Random random = new Random(1);
         UserPo userPo = new UserPo();
         MapperUtils.initEntityPo(userPo);
         userPo.setLoginName(userInsertVo.getName());
@@ -78,10 +83,10 @@ public class UserServiceImpl implements UserService {
         userPo.setType(userInsertVo.getType());
         userPo.setTel(userInsertVo.getTel());
         //todo用户编号
-        userPo.setUserNumber("");
+        userPo.setUserNumber(String.valueOf(random.nextInt(2)));
         userPo.setUserStatus(0);
         userMapper.insert(userPo);
-
-
+      /*  RuntimeException runtimeException = new RuntimeException("手动生成的异常-测试事务");
+        throw runtimeException;*/
     }
 }

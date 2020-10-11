@@ -1,4 +1,4 @@
-package com.xiayu.oauth.cinfiguration;
+package com.xiayu.oauth.configuration;
 
 import com.google.common.collect.Lists;
 import com.xiayu.commons.entity.TemplateConstants;

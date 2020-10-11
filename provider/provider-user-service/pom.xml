@@ -43,6 +43,11 @@
             <artifactId>spring-security-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
 
         <!-- Apache Dubbo -->
         <dependency>
@@ -142,6 +147,11 @@
             <version>${project.parent.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.xiayu</groupId>
+            <artifactId>configuration-transaction</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
     </dependencies>
 

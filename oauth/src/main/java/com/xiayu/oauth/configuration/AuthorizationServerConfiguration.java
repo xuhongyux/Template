@@ -1,4 +1,4 @@
-package com.xiayu.oauth.cinfiguration;
+package com.xiayu.oauth.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;

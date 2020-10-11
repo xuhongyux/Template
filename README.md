@@ -1,5 +1,7 @@
 # Template
 总结一些框架的模板
++ JDK 1.8+
++ MAVEN 3.6+
 
 ## 项目介绍
 整个项目是以微服务的模板来构建，会在其中添加一些其他框架的Demo
@@ -27,3 +29,16 @@
 微服务服务提供者
 + user 用户相关的服务提供
 
+
+
+## 项目使用到的技术
+| 技术                       | 说明                                                     |
+| :------------------------- | :------------------------------------------------------- |
+| Spring Boot                | 新一代 JavaEE 开发标准                                   |
+| Spring Cloud Alibaba       | 阿里巴巴基于 Spring Cloud 编程模型的微服务生态           |
+| Spring Cloud Alibaba Dubbo | 与 Spring Cloud Alibaba 生态相结合的高性能 Java RPC 框架 |
+| Spring Security oAuth2     | 安全认证和授权框架                                       |
+| PageHelper                 | MyBatis 分页插件                                         |
+| Swagger                    | API 文档生成工具                                         |
+| HikariCP                   | 数据库连接池                                             |
+| OKHttp3                    | 轻量级网络框架                                           |

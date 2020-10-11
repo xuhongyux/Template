@@ -1,7 +1,6 @@
 package com.xiayu.provider;
 
 import com.xiayu.configuration.Swagger2Configuration;
-import com.xiayu.provider.service.UserServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;

@@ -29,11 +29,11 @@ public class TestUserPo {
     }
 
     @Test
-    public void insertUser(){
+    public void insertUser()  {
         UserInsertVo userInsertVo = new UserInsertVo();
-        userInsertVo.setName("夏雨");
-        userInsertVo.setPassword("123456");
-        userInsertVo.setTel("13164376290");
+        userInsertVo.setName("夏雨11111aaa");
+        userInsertVo.setPassword("1234561");
+        userInsertVo.setTel("131643762901");
         userInsertVo.setType(0);
         userService.insert(userInsertVo);
 
