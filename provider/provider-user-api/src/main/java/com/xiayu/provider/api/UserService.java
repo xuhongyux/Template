@@ -1,6 +1,5 @@
 package com.xiayu.provider.api;
 
-import com.xiayu.provider.domain.TestUser;
 import com.xiayu.provider.domain.UserPo;
 import com.xiayu.provider.params.UserInsertVo;
 
@@ -15,7 +14,6 @@ import java.util.List;
  */
 public interface UserService {
 
-    TestUser getUser();
 
     List<UserPo> getUsers();
     /**

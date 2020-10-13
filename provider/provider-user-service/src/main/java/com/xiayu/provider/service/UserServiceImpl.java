@@ -7,7 +7,6 @@ import com.xiayu.provider.api.UserService;
 import com.xiayu.provider.domain.TestUser;
 import com.xiayu.provider.domain.UserPo;
 import com.xiayu.provider.domain.UserExample;
-import com.xiayu.provider.mapper.TestUserMapper;
 import com.xiayu.provider.mapper.UserMapper;
 import com.xiayu.provider.params.UserInsertVo;
 import org.apache.dubbo.config.annotation.Service;
@@ -32,8 +31,6 @@ import java.util.Random;
 @Service(version = "1.0.0", timeout = 30000)
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private TestUserMapper testUserMapper;
 
     @Autowired
     private UserMapper userMapper;
@@ -41,12 +38,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-
-    @Override
-    public TestUser getUser() {
-        TestUser testUser = testUserMapper.selectByPrimaryKey(1L);
-        return testUser;
-    }
 
 
     @Override
