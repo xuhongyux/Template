@@ -35,7 +35,7 @@
     <!--引入的模块-->
     <modules>
         <module>dependencies</module>
-        <module>oauth</module>
+        <module>oauth2Service</module>
         <module>provider</module>
         <module>gateway</module>
         <module>configuration</module>

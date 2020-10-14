@@ -13,6 +13,6 @@
     <artifactId>configuration</artifactId>
     <modules>
         <module>configuration-swagger2</module>
-        <module>configuration-transaction</module>
+<!--        <module>configuration-transaction</module>-->
     </modules>
 </project>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xiayu.oauth2.server.mapper.TbRoleMapper" >
-  <resultMap id="BaseResultMap" type="com.xiayu.oauth2.server.domain.TbRole" >
+<mapper namespace="com.xiayu.oauth2Service.server.mapper.TbRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.xiayu.oauth2Service.server.domain.TbRole" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="parent_id" property="parentId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     id, parent_id, name, enname, description, created, updated
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiayu.oauth2.server.domain.TbRoleExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiayu.oauth2Service.server.domain.TbRoleExample" >
     select
     <if test="distinct" >
       distinct
@@ -95,13 +95,13 @@
     delete from tb_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiayu.oauth2.server.domain.TbRoleExample" >
+  <delete id="deleteByExample" parameterType="com.xiayu.oauth2Service.server.domain.TbRoleExample" >
     delete from tb_role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiayu.oauth2.server.domain.TbRole" >
+  <insert id="insert" parameterType="com.xiayu.oauth2Service.server.domain.TbRole" >
     insert into tb_role (id, parent_id, name, 
       enname, description, created, 
       updated)
@@ -109,7 +109,7 @@
       #{enname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
       #{updated,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiayu.oauth2.server.domain.TbRole" >
+  <insert id="insertSelective" parameterType="com.xiayu.oauth2Service.server.domain.TbRole" >
     insert into tb_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiayu.oauth2.server.domain.TbRoleExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.xiayu.oauth2Service.server.domain.TbRoleExample" resultType="java.lang.Integer" >
     select count(*) from tb_role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -206,7 +206,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiayu.oauth2.server.domain.TbRole" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiayu.oauth2Service.server.domain.TbRole" >
     update tb_role
     <set >
       <if test="parentId != null" >
@@ -230,7 +230,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiayu.oauth2.server.domain.TbRole" >
+  <update id="updateByPrimaryKey" parameterType="com.xiayu.oauth2Service.server.domain.TbRole" >
     update tb_role
     set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},

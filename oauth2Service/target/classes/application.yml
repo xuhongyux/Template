@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 9000
+
+
+# jasypt 加密的根（盐）
+jasypt:
+  encryptor:
+    password: xiayu
+

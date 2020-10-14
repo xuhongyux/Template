@@ -13,8 +13,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>provider-user-service</module>
         <module>provider-user-api</module>
+        <module>provider-user-service</module>
     </modules>
 
     <dependencies>

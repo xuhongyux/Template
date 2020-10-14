@@ -42,7 +42,7 @@ public class Swagger2Configuration {
                 //设置多个扫描包路径
                 //.apis(RequestHandlerSelectors.basePackage("com.xiayu.**.controller"))
                 .apis(Predicates.or(
-                        RequestHandlerSelectors.basePackage("com.xiayu.oauth.controller"),
+                        RequestHandlerSelectors.basePackage("com.xiayu.oauth2Service.controller"),
                         RequestHandlerSelectors.basePackage("com.xiayu.consumers.controller"),
                         RequestHandlerSelectors.basePackage("com.xiayu.provider.controller")
                 ))
