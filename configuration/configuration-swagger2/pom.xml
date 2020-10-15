@@ -23,12 +23,13 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--引入新的版本 处理版本兼容-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <scope>provided</scope>
-        </dependency>
+  
+                <!--引入新的版本 处理版本兼容-->
+<!--        <dependency>-->
+<!--            <groupId>com.google.guava</groupId>-->
+<!--            <artifactId>guava</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>
