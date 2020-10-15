@@ -38,10 +38,10 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer  //开启认证服务
-public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
     //注入用于支持 password 模式
-   @Resource
-   private AuthenticationManager authenticationManager;
+    @Resource
+    private AuthenticationManager authenticationManager;
 
 
     //1.配置读取数据库的配置信息

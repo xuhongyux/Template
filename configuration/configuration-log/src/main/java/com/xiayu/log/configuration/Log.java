@@ -1,4 +1,4 @@
-package com.xiayu.configuration.log;
+package com.xiayu.log.configuration;
 
 import lombok.Data;
 

@@ -4,7 +4,6 @@ package com.xiayu.provider.service;
 
 import com.xiayu.commons.utils.MapperUtils;
 import com.xiayu.provider.api.UserService;
-import com.xiayu.provider.domain.TestUser;
 import com.xiayu.provider.domain.UserPo;
 import com.xiayu.provider.domain.UserExample;
 import com.xiayu.provider.mapper.UserMapper;
@@ -77,7 +76,7 @@ public class UserServiceImpl implements UserService {
         userPo.setUserNumber(String.valueOf(random.nextInt(2)));
         userPo.setUserStatus(0);
         userMapper.insert(userPo);
-      /*  RuntimeException runtimeException = new RuntimeException("手动生成的异常-测试事务");
-        throw runtimeException;*/
+        RuntimeException runtimeException = new RuntimeException("手动生成的异常-测试事务");
+        throw runtimeException;
     }
 }

@@ -47,6 +47,11 @@
 
         <dependency>
             <groupId>com.xiayu</groupId>
+            <artifactId>configuration-log</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xiayu</groupId>
             <artifactId>commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

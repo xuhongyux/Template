@@ -130,7 +130,12 @@
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
+        </dependency>
 
+        <!--密码加密-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
         </dependency>
         <!--projects-->
         <dependency>
@@ -145,11 +150,17 @@
             <version>${project.parent.version}</version>
         </dependency>
 
-<!--        <dependency>
+        <dependency>
             <groupId>com.xiayu</groupId>
             <artifactId>configuration-transaction</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>-->
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiayu</groupId>
+            <artifactId>configuration-log</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
     </dependencies>
 

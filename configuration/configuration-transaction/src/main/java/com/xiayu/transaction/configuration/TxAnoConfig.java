@@ -1,4 +1,4 @@
-package com.xiayu.configuration;
+package com.xiayu.transaction.configuration;
 
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.xiayu.configuration;
+package com.xiayu.swagger.configuration;
 
 
 import com.google.common.base.Predicates;

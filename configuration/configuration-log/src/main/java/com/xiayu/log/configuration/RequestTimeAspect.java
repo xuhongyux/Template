@@ -1,4 +1,4 @@
-package com.xiayu.configuration;
+package com.xiayu.log.configuration;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

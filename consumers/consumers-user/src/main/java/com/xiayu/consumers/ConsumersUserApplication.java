@@ -1,10 +1,8 @@
 package com.xiayu.consumers;
 
-import com.xiayu.configuration.Swagger2Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-
 
 /**
  * Description:
@@ -14,7 +12,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Date 2020/10/3 11:27
  */
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackageClasses ={ConsumersUserApplication.class, Swagger2Configuration.class})
+@SpringBootApplication(scanBasePackageClasses ={ConsumersUserApplication.class})
 public class ConsumersUserApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConsumersUserApplication.class, args);
