@@ -40,9 +40,8 @@
         <module>gateway</module>
         <module>configuration</module>
         <module>commons</module>
-        <module>demo</module>
         <module>consumers</module>
-
+        <module>demo</module>
     </modules>
 
 
