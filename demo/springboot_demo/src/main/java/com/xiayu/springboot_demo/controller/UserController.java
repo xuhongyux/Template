@@ -1,11 +1,15 @@
 package com.xiayu.springboot_demo.controller;
 
 import com.xiayu.springboot_demo.service.UserService;
+import com.xiayu.springboot_demo.utils.IPUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Description:
@@ -22,7 +26,9 @@ public class UserController {
 
     //@PostMapping()     @GetMapping(value = "selectUserByName/{userName}")
     @GetMapping(value = "createUser/{userName}/{password}/{tel}")
-    public Integer createUser(@PathVariable String userName,@PathVariable String password,@PathVariable String tel){
+    public Integer createUser(@PathVariable String userName, @PathVariable String password, @PathVariable String tel, HttpServletRequest request ) throws InterruptedException {
+
+
         return userService.createUser(userName, password, tel);
     }
 }
