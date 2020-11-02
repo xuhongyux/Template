@@ -1,4 +1,4 @@
-package com.xiayu.commons.entity;
+package com.xiayu.springboot_demo.entity;
 
 import lombok.Data;
 

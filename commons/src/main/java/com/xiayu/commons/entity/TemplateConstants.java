@@ -15,7 +15,7 @@ public class TemplateConstants {
 
 
     public static final Integer SMS_TYPE_MESSAGE = 3;
-    public static final Integer SMS_TYPE_REGIST = 2;
+    public static final Integer SMS_TYPE_REGISTER = 2;
     public static final Integer SMS_TYPE_LOGIN = 1;
 
     //公共常量
