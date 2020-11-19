@@ -16,7 +16,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver  # 高版本用这个不然会有警告
     jdbc-url: jdbc:mysql://47.106.81.186:3306/template_oauth?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: ENC(iLiAmvnHL2Zds1b8VtRzwK0177zcsTtPBeeWec4vML4BlDP+DR20vnQBhAYbH0/n)
+    password: root
     hikari:
       minimum-idle: 5
       idle-timeout: 600000
@@ -46,5 +46,5 @@ oauth2:
   grant_type: password
   client_id: client
   client_secret: secret
-  url_oauth: http://localhost:9000/oauth/token
+  url_oauth: http://47.106.81.186:9000/oauth/token
 
