@@ -1,5 +1,6 @@
 package com.xiayu.springboot_demo.utils;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,10 +18,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * Description:
- *工具类  文件操作
+ * 工具类  文件操作
+ *
  * @version v1.0.0
  * @Author xiayu
  * @Date 2019/12/30 17:54
@@ -28,13 +33,14 @@ import java.nio.file.StandardCopyOption;
 public class FileUtil {
     /**
      * 获取下载文件名称
+     *
      * @param fileName
      * @param userAgent 可以用        HttpServletRequest request = requestAttributes.getRequest();
-     *                                 String agent = request.getHeader("USER-AGENT"); 来生成
+     *                  String agent = request.getHeader("USER-AGENT"); 来生成
      * @return
      * @throws Exception
      */
-    public static String getDownloadEncodeFileName(String fileName, String userAgent) throws Exception{
+    public static String getDownloadEncodeFileName(String fileName, String userAgent) throws Exception {
         // 进行转码，使其支持中文文件名
         String codedFileName = null;
         // 解决中文文件名乱码问题
@@ -49,13 +55,13 @@ public class FileUtil {
         }
         return codedFileName;
     }
+
     /**
      * 功 能: 移动文件(只能移动文件) 参 数: strSourceFileName:指定的文件全路径名 strDestDir: 移动到指定的文件夹 返回值: 如果成功true;否则false
      *
      * @param strSourceFileName
      * @param strDestDir
-     * @return
-     * testParameter copyTo("C:/Users/xiayu/Desktop/测试文件夹/测试文件.txt", "C:/Users/xiayu/Desktop");
+     * @return testParameter copyTo("C:/Users/xiayu/Desktop/测试文件夹/测试文件.txt", "C:/Users/xiayu/Desktop");
      */
 
     public static boolean copyTo(String strSourceFileName, String strDestDir) {
@@ -138,12 +144,12 @@ public class FileUtil {
             return false;
         }
     }
+
     /**
      * 功 能: 删除指定的文件 参 数: 指定绝对路径的文件名 strFileName 返回值: 如果删除成功true否则false;
      *
      * @param strFileName
-     * @return
-     * testFarameter b = delete("C:/Users/xiayu/Desktop/测试文件夹/测试文件.txt");
+     * @return testFarameter b = delete("C:/Users/xiayu/Desktop/测试文件夹/测试文件.txt");
      */
     public static boolean delete(String strFileName) {
         File fileDelete = new File(strFileName);
@@ -157,7 +163,7 @@ public class FileUtil {
     }
 
     public static boolean delete(File file) {
-        if(file == null) {
+        if (file == null) {
             return true;
         }
         if (!file.exists()) {
@@ -173,7 +179,6 @@ public class FileUtil {
             return file.delete();
         }
     }
-
 
 
     /**
@@ -218,6 +223,7 @@ public class FileUtil {
             return true;
         }
     }
+
     /**
      * 获取文件扩展名
      */
@@ -236,6 +242,7 @@ public class FileUtil {
         }
         return ".";
     }
+
     /**
      * 下载网络文件
      */
@@ -248,6 +255,7 @@ public class FileUtil {
             // TODO抛异常
         }
     }
+
     /**
      * 写入文件
      */
@@ -271,6 +279,7 @@ public class FileUtil {
             }
         }
     }
+
     /**
      * 创建文件
      */
@@ -280,6 +289,7 @@ public class FileUtil {
             f.mkdirs();
         }
     }
+
     /**
      * 读取远程文件
      */
@@ -331,6 +341,7 @@ public class FileUtil {
         }
         return ee;
     }
+
     public static String readRemoteFile(String htmlUrl, String charsetName) {
 
         int HttpResult; // 服务器返回的状态
@@ -379,6 +390,46 @@ public class FileUtil {
             }
         }
         return ee;
+    }
+
+    private  static ArrayList<Object> scanFiles = new ArrayList<>();
+
+    /**
+     * 递归扫描文件夹下面的文件
+     * @param folderPath
+     * @return
+     * @throws RuntimeException
+     */
+    public static ArrayList<Object> scanFilesWithRecursion(String folderPath) throws RuntimeException {
+
+
+        ArrayList<String> directories = new ArrayList<>();
+        File directory = new File(folderPath);
+        if (!directory.isDirectory()) {
+            throw new RuntimeException('"' + folderPath + '"' + " input path is not a Directory , please input the right path of the Directory. ^_^...^_^");
+        }
+        if (directory.isDirectory()) {
+            File[] fileList = directory.listFiles();
+            for (int i = 0; i < fileList.length; i++) {
+                /**如果当前是文件夹，进入递归扫描文件夹**/
+                if (fileList[i].isDirectory()) {
+                    directories.add(fileList[i].getAbsolutePath());
+                    /**递归扫描下面的文件夹**/
+                    scanFilesWithRecursion(fileList[i].getAbsolutePath());
+                }
+                /**非文件夹**/
+                else {
+                    scanFiles.add(fileList[i].getAbsolutePath());
+                }
+            }
+        }
+        return scanFiles;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Object> objects = scanFilesWithRecursion("C:\\Users\\xiayu\\Desktop\\current\\Z紫");
+        System.out.println(objects);
+
     }
 
 }
