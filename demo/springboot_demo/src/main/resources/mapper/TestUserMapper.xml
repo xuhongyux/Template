@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiayu.springboot_demo.mapper.TestUserMapper">
+
+
+    <insert id="insert" parameterType="com.xiayu.springboot_demo.domain.TestUserPo">
+        <!--@mbg.generated-->
+        insert into `test_user` (
+        id,
+        name,
+        type,
+        role,
+        create_time)
+        values
+        (#{id,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{type,jdbcType=INTEGER},
+        #{role,jdbcType=INTEGER},
+        #{createTime,jdbcType=TIMESTAMP}
+       )
+    </insert>
+</mapper>

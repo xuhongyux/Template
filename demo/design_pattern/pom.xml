@@ -9,13 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>leetcode</module>
-        <module>design_pattern</module>
-        <module>springboot_demo</module>
-        <!--<module>oauth2</module>-->
-        <!--<module>gensql</module>-->
-    </modules>
+    <artifactId>design_pattern</artifactId>
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+
+
 </project>

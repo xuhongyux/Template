@@ -14,11 +14,9 @@ import com.xiayu.springboot_demo.utils.FileUtil;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.stream.Collectors;
 
 /**
  * Description:
@@ -36,12 +34,13 @@ public class ImageToCos {
 //    //图片存放位置
 
     // 1 初始化用户身份信息（secretId, secretKey）。
-    public static String secretId = "AKIDAAxZd0v4wj5GG3uEZ许iqlSvwjHZbSYhRv";
-    public static String secretKey = "Sf6cVJUTOAxXqx78wVo许rhHeliRxCCzcs";
+    public static String secretId = "AKIDAAxZd0v4wj5GG3uEZiqlSvwjHZbSYhRv";
+    public static String secretKey = "Sf6cVJUTOAxXqx78wVorhHeliRxCCzcs";
 
     public static void main(String[] args) {
-        String url = "C:\\Users\\xiayu\\Desktop\\美妙的文件\\海贼王小头像";
-        contextLoads(url, "image/头像/");
+        String url = "C:\\Users\\xiayu\\Desktop\\current\\上传图标";
+       // contextLoads(url, "image/头像/");
+        contextLoads(url, "image/图标/");
     }
 
     /**
@@ -82,6 +81,7 @@ public class ImageToCos {
         }
         transferManager.shutdownNow();
         cosclient.shutdown();
+        System.out.println("上传完成");
     }
 
     private static void showTransferProgress(Transfer transfer) {
