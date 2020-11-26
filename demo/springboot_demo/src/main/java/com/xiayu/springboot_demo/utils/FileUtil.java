@@ -1,15 +1,9 @@
 package com.xiayu.springboot_demo.utils;
 
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -19,8 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 
 /**
  * Description:
@@ -31,6 +23,8 @@ import java.util.LinkedList;
  * @Date 2019/12/30 17:54
  */
 public class FileUtil {
+
+    static Logger log = LoggerFactory.getLogger(FileUtil.class);
     /**
      * 获取下载文件名称
      *
@@ -208,6 +202,7 @@ public class FileUtil {
         return true;
     }
 
+
     /**
      * 功 能: 创建文件夹 参 数: strDir 要创建的文件夹名称 返回值: 如果成功true;否则false
      *
@@ -280,14 +275,39 @@ public class FileUtil {
         }
     }
 
+
     /**
      * 创建文件
      */
-    public static void mkdirs(String file) {
+    public static String mkdirs(String file) {
         File f = new File(file);
         if (!f.exists()) {
             f.mkdirs();
         }
+        return file;
+    }
+
+    /**
+     * 创建文件
+     *
+     * @param fileName    文件名称
+     * @return 是否创建成功，成功则返回true
+     */
+    public static boolean createFile(String fileName) {
+        Boolean bool = false;
+       // String filenameTemp = "C:\\Users\\xiayu\\Desktop\\" + fileName + ".png";//文件路径+名称+文件类型
+        File file = new File(fileName);
+        try {
+            //如果文件不存在，则创建新的文件
+            if (!file.exists()) {
+                file.createNewFile();
+                bool = true;
+                log.info("success create file,the file is " + fileName);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bool;
     }
 
     /**
@@ -392,10 +412,11 @@ public class FileUtil {
         return ee;
     }
 
-    private  static ArrayList<Object> scanFiles = new ArrayList<>();
+    private static ArrayList<Object> scanFiles = new ArrayList<>();
 
     /**
      * 递归扫描文件夹下面的文件
+     *
      * @param folderPath
      * @return
      * @throws RuntimeException

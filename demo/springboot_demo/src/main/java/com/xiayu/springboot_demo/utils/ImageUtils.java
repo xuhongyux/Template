@@ -1,13 +1,14 @@
 package com.xiayu.springboot_demo.utils;
 
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 /**
  * Description:
@@ -76,5 +77,31 @@ public class ImageUtils {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    /**
+     * 内容转化为二维码信息
+     * @param content  内容
+     * @param response
+     * @param fileName 文件名称
+     * @return 图片地址
+     */
+    public static String createQRCode(String content,String fileName ,HttpServletResponse response){
+        BitMatrix qRcodeImg ;
+        String qRcodeImgUrl = null;
+        try {
+            // 生成二维码
+            qRcodeImg = QRCodeUtils.generateQRCodeStream(content, response);
+            // 将二维码输出到页面中
+            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(qRcodeImg);
+            String fileUrl = "C:\\Users\\xiayu\\Desktop\\" +fileName+".png";
+            FileUtil.createFile(fileUrl);
+            File file = new File(fileUrl);
+            ImageIO.write(bufferedImage,"png",file);
+            qRcodeImgUrl = fileUrl;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return qRcodeImgUrl;
     }
 }

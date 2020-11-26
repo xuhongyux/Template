@@ -6,17 +6,11 @@
         <artifactId>Template</artifactId>
         <groupId>com.xiayu</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>leetcode</module>
-        <module>design_pattern</module>
-        <module>springboot_demo</module>
-        <module>webService</module>
-        <!--<module>oauth2</module>-->
-        <!--<module>gensql</module>-->
-    </modules>
+    <artifactId>webService</artifactId>
+
+
 </project>
