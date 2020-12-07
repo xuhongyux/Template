@@ -16,6 +16,13 @@ spring:
 mybatis:
   type-aliases-package: com.xiayu.springboot_demo.domain
   mapper-locations: classpath:mapper/*.xml
+  #开启数据库日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 server:
   port: 9999
+
+
+redis:
+  globalSessionTimeout: 600

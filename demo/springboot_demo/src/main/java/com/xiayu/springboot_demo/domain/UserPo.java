@@ -3,7 +3,9 @@ package com.xiayu.springboot_demo.domain;
 
 
 import lombok.Data;
+import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -14,8 +16,11 @@ import java.util.Date;
  * @Date 2020/10/1 13:22
  * @version v1.0.0
  */
+@ToString
 @Data
-public class UserPo {
+public class UserPo implements Serializable {
+
+    private static final long serialVersionUID = 662692455422902539L;
 
     /**
     * id

@@ -1,15 +1,15 @@
 package com.xiayu.springboot_demo.service.impl;
 
-import com.sun.xml.internal.ws.util.JAXWSUtils;
+import com.xiayu.springboot_demo.domain.UserExample;
 import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.mapper.UserMapper;
 import com.xiayu.springboot_demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,6 +25,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+
 
     @Override
     public int createUser(String userName, String password, String tel) {
@@ -48,6 +50,19 @@ public class UserServiceImpl implements UserService {
             throw runtimeException;
         }*/
         return insert;
+    }
+
+    @Override
+    @Cacheable(value ="UserPo", key = "#userName")
+    public UserPo selectUser(String userName) {
+
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andLoginNameEqualTo(userName)
+                .andDelFlagEqualTo(0);
+        List<UserPo> userPos = userMapper.selectByExample(userExample);
+
+        return userPos.size()==0? new UserPo(): userPos.get(0);
     }
 
     /**

@@ -1,12 +1,11 @@
 package com.xiayu.springboot_demo.controller;
 
+import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.entity.ResponseResult;
 import com.xiayu.springboot_demo.service.UserService;
-import com.xiayu.springboot_demo.utils.IPUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Api(tags = "用户")
 @RestController
-@RequestMapping("user")
+@RequestMapping("user/")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -35,5 +34,11 @@ public class UserController {
 
         int user = userService.createUser(userName, password, tel);
         return new ResponseResult(ResponseResult.CodeStatus.OK,"添加用户",user);
+    }
+    @ApiOperation("查询用户")
+    @GetMapping(value = "selectUser/{userName}")
+    public ResponseResult<UserPo> selectUser(@PathVariable String userName){
+        UserPo userPo = userService.selectUser(userName);
+        return new ResponseResult<UserPo>(ResponseResult.CodeStatus.OK,"",userPo);
     }
 }

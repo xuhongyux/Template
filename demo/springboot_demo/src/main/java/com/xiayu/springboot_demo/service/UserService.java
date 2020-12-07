@@ -17,4 +17,11 @@ public interface UserService {
      * @return
      */
     int createUser(@PathVariable String userName, @PathVariable String password, @PathVariable String tel);
+
+    /**
+     * 查询用户 by 用户名
+     * @param userName
+     * @return
+     */
+    UserPo selectUser(String userName);
 }
