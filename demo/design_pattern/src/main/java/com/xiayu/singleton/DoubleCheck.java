@@ -17,8 +17,6 @@ public class DoubleCheck {
                 if(instance ==null){
                     instance = new DoubleCheck();
                 }
-
-
             }
         }
         return instance;
