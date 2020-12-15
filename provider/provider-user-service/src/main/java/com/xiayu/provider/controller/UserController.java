@@ -1,6 +1,7 @@
 package com.xiayu.provider.controller;
 
 import com.xiayu.commons.entity.ResponseResult;
+import com.xiayu.commons.utils.SnowFlakeUtil;
 import com.xiayu.provider.api.UserService;
 import com.xiayu.provider.domain.UserPo;
 import com.xiayu.provider.params.UserInsertVo;
@@ -49,6 +50,12 @@ public class UserController {
         userService.insert(userInsertVo);
         return new ResponseResult<>(ResponseResult.CodeStatus.OK, "添加用户", null);
 
+    }
+    @ApiOperation(value = "测试雪花算法", httpMethod = "GET")
+    @GetMapping(value = "SnowFlakeUtilTest")
+    public ResponseResult<Long> SnowFlakeUtilTest(){
+        long l = SnowFlakeUtil.nextId();
+        return new ResponseResult<>(ResponseResult.CodeStatus.OK,"",l);
     }
 
 }

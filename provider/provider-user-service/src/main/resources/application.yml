@@ -14,3 +14,10 @@ server:
 jasypt:
   encryptor:
     password: xiayu
+
+# 雪花算法参数
+SnowFlake:
+  # 数据中心 5bit
+  datacenterId: 10
+  # 机器码 5bit
+  machineId: 10
