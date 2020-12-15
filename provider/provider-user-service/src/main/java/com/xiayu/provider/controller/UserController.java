@@ -51,10 +51,15 @@ public class UserController {
         return new ResponseResult<>(ResponseResult.CodeStatus.OK, "添加用户", null);
 
     }
+
+
+    @Autowired
+    private SnowFlakeUtil snowFlakeUtil;
+
     @ApiOperation(value = "测试雪花算法", httpMethod = "GET")
     @GetMapping(value = "SnowFlakeUtilTest")
     public ResponseResult<Long> SnowFlakeUtilTest(){
-        long l = SnowFlakeUtil.nextId();
+        long l = snowFlakeUtil.nextId();
         return new ResponseResult<>(ResponseResult.CodeStatus.OK,"",l);
     }
 

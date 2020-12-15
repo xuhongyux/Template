@@ -1,7 +1,5 @@
 package com.xiayu.commons.utils;
 
-import org.springframework.beans.factory.annotation.Value;
-
 /**
  * @author xuhongyu
  * @describe  雪花算法构建ID
@@ -46,10 +44,8 @@ public class SnowFlakeUtil {
     /** 时间戳较数据中心的偏移量 */
     private final static long TIMESTMP_LEFT = DATACENTER_LEFT + DATACENTER_BIT;
 
-    @Value("${SnowFlake.datacenterId}")
-    private static long datacenterId;  //数据中心
-    @Value("${SnowFlake.machineId}")
-    private static long machineId;    //机器标识
+    private  long datacenterId;  //数据中心
+    private  long machineId;    //机器标识
     private static long sequence = 0L; //序列号
     private static long lastStmp = -1L;//上一次时间戳
 
@@ -57,14 +53,35 @@ public class SnowFlakeUtil {
      1、私有化避免了通过new的方式进行调用，主要是解决了在for循环中通过new的方式调用产生的id不一定唯一问题问题，因为用于			 记录上一次时间戳的lastStmp永远无法得到比对；
      2、没有给出有参构造在第一点的基础上考虑了一套分布式系统产生的唯一序列号应该是基于相同的参数
      */
-    private SnowFlakeUtil(){}
+    private SnowFlakeUtil(long datacenterId,long machineId){
+        this.datacenterId = datacenterId;
+        this.machineId = machineId;
+    }
+
+    /**
+     * 单例
+     * 双检锁
+     */
+    private static SnowFlakeUtil instance;
+
+    public static SnowFlakeUtil getSnowFlakeUtil(long datacenterId,long machineId){
+        if(instance ==null){
+            synchronized (SnowFlakeUtil.class){
+                if(instance ==null){
+                    instance = new SnowFlakeUtil(datacenterId,machineId);
+                }
+            }
+        }
+        return instance;
+    }
+
 
     /**
      * 产生下一个ID
      *
      * @return
      */
-    public static synchronized long nextId() {
+    public  synchronized long nextId() {
         /** 获取当前时间戳 */
         long currStmp = getNewstmp();
 
@@ -88,8 +105,7 @@ public class SnowFlakeUtil {
         }
         /** 当前时间戳存档记录，用于下次产生id时对比是否为相同时间戳 */
         lastStmp = currStmp;
-
-
+       // System.out.println("****************数据中心编号"+ datacenterId);
         return (currStmp - START_STMP) << TIMESTMP_LEFT //时间戳部分
                 | datacenterId << DATACENTER_LEFT      //数据中心部分
                 | machineId << MACHINE_LEFT            //机器标识部分
@@ -109,8 +125,7 @@ public class SnowFlakeUtil {
     }
 
     public static void main(String[] args) {
-        long l = SnowFlakeUtil.nextId();
-        System.out.println(l);
+        System.out.println();
     }
 
 }
