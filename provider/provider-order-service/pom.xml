@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>provider-user-service</artifactId>
+    <artifactId>provider-order-service</artifactId>
     <packaging>jar</packaging>
     <dependencies>
 
@@ -176,7 +176,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xiayu.provider.ProviderUserApplication</mainClass>
+                    <mainClass>com.xiayu.provider.ProviderOrderApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -23,4 +23,6 @@ public interface UserService {
     UserPo selectUserByName(String userName);
 
     void insert(UserInsertVo userInsertVo);
+
+    void updateUser(UserInsertVo userInsertVo);
 }

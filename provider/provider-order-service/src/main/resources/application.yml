@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: provider-order
+    main:
+      allow-bean-definition-overriding: true
+    jackson:
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: test
+mybatis:
+  type-aliases-package: com.xiayu.provider.domain
+  mapper-locations: classpath:mapper/*.xml
+
+
+server:
+  port: 9002
+
+
+# jasypt 加密的根（盐）test
+jasypt:
+  encryptor:
+    password: xiayu
+
+# 雪花算法参数
+SnowFlake:
+  # 数据中心 5bit
+  datacenterId: 10
+  # 机器码 5bit
+  machineId: 10

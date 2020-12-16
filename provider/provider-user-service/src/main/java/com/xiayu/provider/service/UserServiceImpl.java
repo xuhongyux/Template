@@ -2,19 +2,23 @@ package com.xiayu.provider.service;
 
 
 
+import com.xiayu.commons.utils.BeanUtil;
 import com.xiayu.commons.utils.MapperUtils;
+import com.xiayu.provider.api.OrderService;
 import com.xiayu.provider.api.UserService;
+import com.xiayu.provider.domain.OrderPo;
 import com.xiayu.provider.domain.UserPo;
 import com.xiayu.provider.domain.UserExample;
 import com.xiayu.provider.mapper.UserMapper;
+import com.xiayu.provider.params.OrderVo;
 import com.xiayu.provider.params.UserInsertVo;
+import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-
-
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -36,6 +40,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Reference(version = "1.0.0")
+    private OrderService orderService;
 
 
 
@@ -78,5 +85,20 @@ public class UserServiceImpl implements UserService {
         userMapper.insert(userPo);
         RuntimeException runtimeException = new RuntimeException("手动生成的异常-测试事务");
         throw runtimeException;
+    }
+
+    @Override
+    public void updateUser(UserInsertVo userInsertVo) {
+        UserPo userPo = new UserPo();
+        BeanUtil.copyPropertiesIgnoreNull(userInsertVo,userPo);
+        userPo.setUpdateTime(new Date());
+        userMapper.updateByPrimaryKeySelective(userPo);
+        OrderVo orderVo = new OrderVo();
+        orderVo.setUserId(userInsertVo.getId());
+        orderVo.setInformation(userInsertVo.getPassword());
+        orderService.updaOrderByUserId(orderVo);
+        int a = 2;
+        System.out.println(2);
+       // throw new RuntimeException("手动异常");
     }
 }

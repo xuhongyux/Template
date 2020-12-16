@@ -12,6 +12,8 @@ import lombok.Data;
  */
 @Data
 public class UserInsertVo {
+
+    private String id;
     private String name;
     private String password;
     private String tel;

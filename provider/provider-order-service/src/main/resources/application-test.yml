@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.106.81.186:3306/template_order?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: ENC(iLiAmvnHL2Zds1b8VtRzwK0177zcsTtPBeeWec4vML4BlDP+DR20vnQBhAYbH0/n)
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  output:
+    ansi:
+      enabled: always
+
+dubbo:
+  scan:
+    base-packages: com.xiayu.provider.service
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+  registry:
+    address: nacos://47.106.81.186:8848
+    provider:
+      loadbalance: roundrobin  #负载均衡方式  轮循
+      # random 随机，roundrobin 轮循，leastactive 最少活跃调用数，consistenthash一致性 Hash
+
+
+
+
