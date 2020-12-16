@@ -2,7 +2,7 @@ spring:
   profiles:
     active: test
 mybatis:
-  type-aliases-package: com.xiayu.provicer.domain
+  type-aliases-package: com.xiayu.provider.domain
   mapper-locations: classpath:mapper/*.xml
 
 
