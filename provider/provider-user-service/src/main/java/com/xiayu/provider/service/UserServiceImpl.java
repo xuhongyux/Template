@@ -12,6 +12,7 @@ import com.xiayu.provider.domain.UserExample;
 import com.xiayu.provider.mapper.UserMapper;
 import com.xiayu.provider.params.OrderVo;
 import com.xiayu.provider.params.UserInsertVo;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,7 @@ public class UserServiceImpl implements UserService {
         RuntimeException runtimeException = new RuntimeException("手动生成的异常-测试事务");
         throw runtimeException;
     }
-
+    @GlobalTransactional
     @Override
     public void updateUser(UserInsertVo userInsertVo) {
         UserPo userPo = new UserPo();
@@ -99,6 +100,6 @@ public class UserServiceImpl implements UserService {
         orderService.updaOrderByUserId(orderVo);
         int a = 2;
         System.out.println(2);
-       // throw new RuntimeException("手动异常");
+        throw new RuntimeException("手动异常");
     }
 }

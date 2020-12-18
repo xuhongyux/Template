@@ -25,6 +25,7 @@
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <!-- Ali Cloud -->
         <aliyun-sdk-oss.version>3.6.0</aliyun-sdk-oss.version>
+        <seata.version>1.0.0</seata.version>
         <!--Json转换插件-->
         <jackson-core.version>2.10.1</jackson-core.version>
         <projectlombok.version>1.18.12</projectlombok.version>
@@ -67,6 +68,13 @@
                         <artifactId>commons-logging</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <!--分布式事务-->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata.version}</version>
             </dependency>
 
             <!-- Apache Dubbo -->

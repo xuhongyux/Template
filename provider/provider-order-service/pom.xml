@@ -102,6 +102,11 @@
             <artifactId>spring-context-support</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+        </dependency>
+
         <!-- DataSource -->
         <dependency>
             <groupId>com.zaxxer</groupId>
