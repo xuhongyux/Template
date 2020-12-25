@@ -16,6 +16,7 @@
         <module>design_pattern</module>
         <module>springboot_demo</module>
         <module>webService</module>
+        <module>spring_framework</module>
         <!--<module>oauth2</module>-->
         <!--<module>gensql</module>-->
     </modules>
