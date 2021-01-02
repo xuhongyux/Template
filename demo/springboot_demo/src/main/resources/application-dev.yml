@@ -16,7 +16,7 @@ spring:
       connection-test-query: SELECT 1
   redis:
     # 主机地址
-    host: 47.106.81.186
+    host: 47.93.246.173
     #  主机端口
     port: 6379
     lettuce:

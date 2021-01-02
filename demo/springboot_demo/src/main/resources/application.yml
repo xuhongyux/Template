@@ -2,7 +2,7 @@ spring:
   application:
     name: springboot
   profiles:
-    active: dev
+    active: test
   main:
     allow-bean-definition-overriding: true
   jackson:

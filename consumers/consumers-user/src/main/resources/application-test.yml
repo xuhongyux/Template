@@ -6,7 +6,7 @@ dubbo:
     port: -1
     serialization: kryo
   registry:
-    address: nacos://47.106.81.186:8848
+    address: nacos://47.93.246.173:8848
     provider:
       loadbalance: roundrobin  #负载均衡方式  轮循
       # random 随机，roundrobin 轮循，leastactive 最少活跃调用数，consistenthash一致性 Hash
@@ -23,10 +23,10 @@ security:
     client:
       client-id: client
       client-secret: secret
-      access-token-uri: http://47.106.81.186:9000/oauth/token
-      user-authorization-uri: http://47.106.81.186:9000/oauth/authorize
+      access-token-uri: http://47.93.246.173:9000/oauth/token
+      user-authorization-uri: http://47.93.246.173:9000/oauth/authorize
     resource:
-      token-info-uri:  http://47.106.81.186:9000/oauth/check_token
+      token-info-uri:  http://47.93.246.173:9000/oauth/check_token
 
 
 # 开启 Feign 的 OKHttp 方式
