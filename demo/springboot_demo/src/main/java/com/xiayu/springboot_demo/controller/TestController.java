@@ -8,12 +8,14 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -29,11 +31,14 @@ public class TestController {
     @Autowired
     private SnowFlakeUtil snowFlakeUtil;
 
+//    @Resource
+//    public BCryptPasswordEncoder passwordEncoder;
+
+
     @PostMapping(value = "getQRCode")
     @ApiImplicitParams(
             @ApiImplicitParam()
     )
-
     @ApiOperation("获取二维码")
     public ResponseResult<String> createQRCode(@RequestParam String content, HttpServletResponse response) {
 
@@ -47,6 +52,17 @@ public class TestController {
         long l = snowFlakeUtil.nextId();
         return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取二维码",String.valueOf(l));
     }
+
+
+    @ApiOperation("获取加密数据")
+    @GetMapping(value  ="getEncode")
+    public ResponseResult<String> getEncode() {
+      //  String encode = passwordEncoder.encode("123456");
+        return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取二维码",null);
+    }
+
+
+
 
 
 }

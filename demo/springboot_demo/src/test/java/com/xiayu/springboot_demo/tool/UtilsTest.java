@@ -1,6 +1,5 @@
 package com.xiayu.springboot_demo.tool;
 
-import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -11,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class UtilsTest {
 
-    @Test
+
     public void SnowFlakeUtilsTest(){
 
     }

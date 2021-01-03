@@ -19,13 +19,13 @@ import java.io.*;
  */
 public class ImageUtils {
 
-    public static void main(String[] args) {
-        String iamgeFilePath = "E:\\桌面\\壁纸\\438760.jpg";
-        String s = GetImageStr(iamgeFilePath);
-        System.out.println(s);
-        boolean b = GenerateImage( s,"C:\\Users\\xiayu\\Desktop\\图片1.jpg");
-        System.out.println(b);
-    }
+//    public static void main(String[] args) {
+//        String iamgeFilePath = "E:\\桌面\\壁纸\\438760.jpg";
+//        String s = GetImageStr(iamgeFilePath);
+//        System.out.println(s);
+//        boolean b = GenerateImage( s,"C:\\Users\\xiayu\\Desktop\\图片1.jpg");
+//        System.out.println(b);
+//    }
 
     /**
      * 将图片文件转化为字节数组字符串，并对其进行Base64编码处理

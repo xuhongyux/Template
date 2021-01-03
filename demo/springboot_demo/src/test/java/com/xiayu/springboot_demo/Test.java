@@ -1,18 +1,25 @@
 package com.xiayu.springboot_demo;
 
-import com.xiayu.springboot_demo.utils.ThreadPoolUtil;
 
-/**
- * @author xuhongyu
- * @describe
- * @create 2020-12-14-14:31
- */
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.io.IOException;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class Test {
-        public static void main(String[] args) {
-            char [] cha = new char[1024];
-            System.out.println(cha);
-            new ThreadPoolUtil();
 
-        }
+    @org.junit.Test
+    public void test(){
+
+        System.out.println(new BCryptPasswordEncoder().encode("123456"));
+
+    }
+
+
 
 }
