@@ -3,6 +3,7 @@ package com.xiayu.rabbitmq;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 
 /**
  * @author xuhongyu
@@ -33,7 +34,7 @@ public class Test {
         //发布消息 参数0：交换机名称  参数1：队列名称 参数2：传递消息额外设置 参数3： 消息的具体内容
         for (int i = 0; i < 10; i++) {
             //发布消息 参数0：交换机名称  参数1：队列名称 参数2：传递消息额外设置 参数3： 消息的具体内容
-            channel.basicPublish("", "hello", null, (i+"====>:我是消息").getBytes());
+            channel.basicPublish("", "hello", MessageProperties.PERSISTENT_TEXT_PLAIN, (i+"====>:我是消息").getBytes());
         }
         System.out.println("消息推送完成");
         //关闭通道

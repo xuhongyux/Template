@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * @author xuhongyu
- * @describe
+ * @describe 工作模型
  * @create 2020-12-31-11:53
  */
 public class WorkQueue {
@@ -37,13 +37,21 @@ public class WorkQueue {
         Connection connection = connectionFactory.newConnection();
         //创建通道
         Channel channel = connection.createChannel();
-
+        /**
+         * 修改为手动确认机制 能者多劳
+         */
+        //每次只领取一个消息
+        channel.basicQos(1);
         //通道绑定对应消息队列 参数0： 队列名称 参数1: 是否持久化  参数2:是否独占队列 参数3:是否自动删除  参数4:其他属性
         channel.queueDeclare("hello", true, false, false, null);
-        channel.basicConsume("hello", true, new DefaultConsumer(channel) {
+        //消费消息 参数0 队列名称，参数1，是否自动确认消息，参数2 DefaultConsumer对象
+        //设置参数1为false改为手动确认
+        channel.basicConsume("hello", false, new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 System.out.println("消费者1: " + new String(body));
+                //手动确认消息，参数0，手动确认消息标识，参数1 ：false 每次确认一个，是否开启多个消息确认
+                channel.basicAck(envelope.getDeliveryTag(),false);
             }
         });
     }
@@ -64,6 +72,11 @@ public class WorkQueue {
         Channel channel = connection.createChannel();
         //通道绑定对应消息队列 参数0： 队列名称 参数1: 是否持久化  参数2:是否独占队列 参数3:是否自动删除  参数4:其他属性
         channel.queueDeclare("hello",true,false,false,null);
+
+        //消费消息 参数0 队列名称，参数1，是否自动确认消息，参数2 DefaultConsumer对象
+        /**
+         * 设置消息
+         */
         channel.basicConsume("hello",true,new DefaultConsumer(channel){
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
@@ -75,7 +88,7 @@ public class WorkQueue {
                 System.out.println("消费者2: "+new String(body));
             }
         });
-
+//默认轮询消费
     }
 
 
