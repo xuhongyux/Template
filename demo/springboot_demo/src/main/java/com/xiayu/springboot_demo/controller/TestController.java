@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,12 +46,12 @@ public class TestController {
         String url = ImageUtils.createQRCode(content,"content",response);
         return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取二维码", url);
     }
-
+    @PreAuthorize("hasRole('user')") //只允许user角色访问
     @ApiOperation("测试雪花算法")
     @GetMapping(value  ="snowFlakeTest")
     public ResponseResult<String> snowFlakeTest() {
         long l = snowFlakeUtil.nextId();
-        return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取二维码",String.valueOf(l));
+        return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "测试雪花算法",String.valueOf(l));
     }
 
 
@@ -58,7 +59,7 @@ public class TestController {
     @GetMapping(value  ="getEncode")
     public ResponseResult<String> getEncode() {
       //  String encode = passwordEncoder.encode("123456");
-        return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取二维码",null);
+        return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取加密数据",null);
     }
 
 
