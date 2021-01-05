@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService {
         userPo.setUserStatus(0);
         userMapper.insert(userPo);
         RuntimeException runtimeException = new RuntimeException("手动生成的异常-测试事务");
-        throw runtimeException;
+       // throw runtimeException;
     }
     @GlobalTransactional
     @Override

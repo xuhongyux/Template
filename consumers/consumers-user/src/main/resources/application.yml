@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test
+    active: dev
   application:
     name: consumers-user
   main:
@@ -11,7 +11,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 47.106.81.186:8848
+        server-addr: 47.93.246.173:8848
 
 server:
   port: 9003
