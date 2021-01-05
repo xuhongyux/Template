@@ -1,5 +1,6 @@
 package com.xiayu.springboot_demo.controller;
 
+import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.entity.ResponseResult;
 import com.xiayu.springboot_demo.utils.ImageUtils;
 import com.xiayu.springboot_demo.utils.SnowFlakeUtil;
@@ -32,6 +33,9 @@ public class TestController {
     @Autowired
     private SnowFlakeUtil snowFlakeUtil;
 
+    @Autowired
+    private UserPo userPo;
+
 //    @Resource
 //    public BCryptPasswordEncoder passwordEncoder;
 
@@ -63,7 +67,12 @@ public class TestController {
     }
 
 
-
+    @ApiOperation("测试不同的profile")
+    @GetMapping(value  ="profileTest")
+    public ResponseResult<String> profileTest() {
+        String s = userPo.toString();
+        return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "测试不同的profile",s);
+    }
 
 
 }

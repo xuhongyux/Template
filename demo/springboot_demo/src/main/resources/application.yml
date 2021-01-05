@@ -2,7 +2,7 @@ spring:
   application:
     name: springboot
   profiles:
-    active: test
+    active: @profiles.active@
   main:
     allow-bean-definition-overriding: true
   jackson:
@@ -27,10 +27,16 @@ server:
 redis:
   globalSessionTimeout: 600
 
+#########################################
 ## 雪花算法参数
 SnowFlake:
   # 数据中心 5bit
  datacenterId: 10
  # 机器码 5bit
  machineId: 10
+
+
+userpo:
+  name: @userPoName@
+
 

@@ -56,6 +56,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // 开放的接口
         web.ignoring().antMatchers(
+                //开放所有接口
+                "/**",
                 //登录验证的接口
                 "/oauth/check_token","/user/login","/user/loginSms","/user/getLoginValidation","/user/logout","/user/jwt",
                 //Swagger的接口
