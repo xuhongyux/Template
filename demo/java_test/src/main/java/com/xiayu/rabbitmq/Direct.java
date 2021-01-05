@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * @author xuhongyu
- * @describe
+ * @describe  直连
  * @create 2020-12-31-10:39
  */
 public class Direct {
