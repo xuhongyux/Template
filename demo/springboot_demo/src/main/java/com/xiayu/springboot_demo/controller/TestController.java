@@ -1,5 +1,6 @@
 package com.xiayu.springboot_demo.controller;
 
+import com.xiayu.springboot_demo.annotation.AnnotationTest;
 import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.entity.ResponseResult;
 import com.xiayu.springboot_demo.utils.ImageUtils;
@@ -38,6 +39,14 @@ public class TestController {
 
 //    @Resource
 //    public BCryptPasswordEncoder passwordEncoder;
+
+    @GetMapping(value = "annotationTest")
+    @ApiOperation("测试注解")
+    @AnnotationTest("夏雨")
+    public UserPo annotationTest() {
+        System.out.println("------------------");
+       return new UserPo();
+    }
 
 
     @PostMapping(value = "getQRCode")
