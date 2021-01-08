@@ -30,8 +30,8 @@ security:
 
 
 # 开启 Feign 的 OKHttp 方式
-feign:
-  okhttp:
-    enabled: true
-  httpclient:
-    enabled: false
+#feign:
+#  okhttp:
+#    enabled: true
+#  httpclient:
+#    enabled: false

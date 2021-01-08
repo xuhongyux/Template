@@ -49,6 +49,11 @@ public class UserController {
         return userService.selectUserByName(userName);
     }
 
+
+    @GetMapping(value = "selectUserByNameFeign")
+    public String selectUserByNamefeign() {
+        return userService.selectUserByName("夏雨").toString();
+    }
     @ApiOperation(value = "添加用户", httpMethod = "POST")
     @PostMapping(value = "creatUser")
     public ResponseResult<Void> creatUser(@RequestBody UserInsertVo userInsertVo) {

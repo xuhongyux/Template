@@ -17,6 +17,7 @@
         <!-- Native Cloud -->
         <dubbo.version>2.7.3</dubbo.version>
         <dubbo-nacos.version>1.1.3</dubbo-nacos.version>
+        <dubbo-nacos.discover>0.9.0.RELEASE</dubbo-nacos.discover>
         <spring-boot-mapper.version>2.1.5</spring-boot-mapper.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring-cloud-alibaba.verion>2.1.0.RELEASE</spring-cloud-alibaba.verion>
@@ -87,6 +88,12 @@
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-registry-nacos</artifactId>
                 <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${dubbo-nacos.discover}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
