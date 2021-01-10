@@ -133,6 +133,11 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
+        <!--rabbitMq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
 
         <!--Swagger 引入-->
         <dependency>

@@ -37,7 +37,8 @@ public class Swagger2Configuration {
                 //设置多个扫描包路径
                 //.apis(RequestHandlerSelectors.basePackage("com.xiayu.**.controller"))
                 .apis(Predicates.or(
-                        RequestHandlerSelectors.basePackage("com.xiayu.springboot_demo.controller")
+                        RequestHandlerSelectors.basePackage("com.xiayu.springboot_demo.controller"),
+                        RequestHandlerSelectors.basePackage("com.xiayu.springboot_demo.rabbitmq")
                 ))
                 .paths(PathSelectors.any())
                 .build()
