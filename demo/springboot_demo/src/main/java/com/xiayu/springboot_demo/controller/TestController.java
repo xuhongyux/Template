@@ -63,6 +63,7 @@ public class TestController {
     @ApiOperation("测试雪花算法")
     @GetMapping(value  ="snowFlakeTest")
     public ResponseResult<String> snowFlakeTest() {
+
         long l = snowFlakeUtil.nextId();
         return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "测试雪花算法",String.valueOf(l));
     }
