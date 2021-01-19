@@ -2,14 +2,19 @@ package com.xiayu.springboot_demo.controller;
 
 import com.xiayu.springboot_demo.domain.TestUserPo;
 import com.xiayu.springboot_demo.domain.TestUserRootPo;
+import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.entity.ResponseResult;
 import com.xiayu.springboot_demo.mapper.TestUserMapper;
 import com.xiayu.springboot_demo.mapper.TestUserRootMapper;
+import com.xiayu.springboot_demo.mapper.UserBeanMapper;
+import com.xiayu.springboot_demo.mapper.UserMapper;
+import com.xiayu.springboot_demo.service.DataService;
 import com.xiayu.springboot_demo.utils.MapperUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,10 +34,23 @@ import java.util.Random;
 public class DataController {
 
     @Autowired
+    private UserBeanMapper userBeanMapper;
+
+    @Autowired
     private TestUserMapper testUserMapper;
 
     @Autowired
     private TestUserRootMapper testUserRootMapper;
+
+    @Autowired
+    private DataService dataService;
+
+    @ApiOperation("Mybatis缓存一级缓存")
+    @GetMapping(value = "mybatisCache/{userName}")
+    public ResponseResult<UserPo> mybatisCache(@PathVariable String userName) {
+        UserPo userPo = dataService.selectUserByUserName(userName);
+        return new ResponseResult<UserPo>(ResponseResult.CodeStatus.OK, "Mybatis缓存", userPo);
+    }
 
     @ApiOperation("添加用户权限")
     @GetMapping(value = "createUserRoot")
@@ -85,7 +103,7 @@ public class DataController {
                     for (TestUserRootPo testUserPo : testUserPoList2) {
                         testUserRootMapper.insert(testUserPo);
                     }
-                }       
+                }
         ).start();
         new Thread(
                 () -> {
@@ -113,18 +131,6 @@ public class DataController {
         return new ResponseResult(ResponseResult.CodeStatus.OK, "添加用户权限", null);
     }
 
-    @ApiOperation("test")
-    @GetMapping(value = "test")
-    public ResponseResult<Void> test() {
-        TestUserRootPo testUserRootPo = new TestUserRootPo();
-        testUserRootPo.setId(MapperUtils.buildUUID());
-        testUserRootPo.setName("name");
-        testUserRootPo.setType(1);
-        testUserRootPo.setRoot(1);
-
-        testUserRootMapper.insert(testUserRootPo);
-        return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"test",null);
-    }
 
     @ApiOperation("添加用户")
     @GetMapping(value = "createUser")
