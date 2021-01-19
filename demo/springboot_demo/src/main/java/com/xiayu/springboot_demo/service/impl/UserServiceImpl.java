@@ -65,6 +65,13 @@ public class UserServiceImpl implements UserService {
         return userPos.size()==0? new UserPo(): userPos.get(0);
     }
 
+    public List<UserPo> mapperSelectUser(){
+        UserPo userPo = new UserPo();
+        userPo.setLoginName("夏雨");
+        List<UserPo> userPo1 = userMapper.mapperSelectUser(userPo);
+        return userPo1;
+    }
+
     /**
      * 生成一个UUID
      *

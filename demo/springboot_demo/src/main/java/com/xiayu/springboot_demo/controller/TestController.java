@@ -1,8 +1,11 @@
 package com.xiayu.springboot_demo.controller;
 
+import com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.PrivateKeyResolver;
 import com.xiayu.springboot_demo.annotation.AnnotationTest;
 import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.entity.ResponseResult;
+import com.xiayu.springboot_demo.mapper.UserMapper;
+import com.xiayu.springboot_demo.params.RequestVo;
 import com.xiayu.springboot_demo.utils.ImageUtils;
 import com.xiayu.springboot_demo.utils.SnowFlakeUtil;
 import io.swagger.annotations.Api;
@@ -14,12 +17,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @author xuhongyu
@@ -37,6 +42,8 @@ public class TestController {
     @Autowired
     private UserPo userPo;
 
+    @Autowired
+    private UserMapper userMapper;
 //    @Resource
 //    public BCryptPasswordEncoder passwordEncoder;
 
@@ -49,14 +56,22 @@ public class TestController {
     }
 
 
-    @PostMapping(value = "getQRCode")
-    @ApiImplicitParams(
-            @ApiImplicitParam()
-    )
-    @ApiOperation("获取二维码")
-    public ResponseResult<String> createQRCode(@RequestParam String content, HttpServletResponse response) {
+    @GetMapping(value = "mybatisMapperTest")
+    @ApiOperation("mybatis测试")
+    public ResponseResult<String> mybatisMapperTest() {
+        UserPo userPo = new UserPo();
+        userPo.setLoginName("夏雨");
+        List<UserPo> userPos = userMapper.mapperSelectUser(userPo);
+        return new ResponseResult<>(ResponseResult.CodeStatus.OK, "mybatis测试", userPos.toString());
+    }
 
-        String url = ImageUtils.createQRCode(content,"content",response);
+
+
+    @PostMapping(value = "getQRCode")
+    @ApiOperation("获取二维码")
+    public ResponseResult<String> createQRCode(@RequestBody RequestVo content, HttpServletResponse response) {
+
+        String url = ImageUtils.createQRCode(content.getContent(),"content",response);
         return new ResponseResult<String>(ResponseResult.CodeStatus.OK, "获取二维码", url);
     }
     @PreAuthorize("hasRole('user')") //只允许user角色访问

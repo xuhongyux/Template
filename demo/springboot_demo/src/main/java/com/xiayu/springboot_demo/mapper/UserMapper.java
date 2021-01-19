@@ -40,4 +40,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(UserPo record);
 
     int updateByPrimaryKey(UserPo record);
+
+    List<UserPo> mapperSelectUser(UserPo userPo);
 }

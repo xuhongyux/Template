@@ -93,6 +93,11 @@
             <artifactId>javax.persistence-api</artifactId>
         </dependency>
 
+        <!--        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-xml-provider</artifactId>
+        </dependency>-->
+
 
         <!--腾讯cos-->
         <dependency>
