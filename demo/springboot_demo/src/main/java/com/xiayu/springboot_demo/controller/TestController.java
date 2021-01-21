@@ -59,7 +59,7 @@ public class TestController {
     @GetMapping(value = "mybatisMapperTest")
     @ApiOperation("mybatis测试")
     public ResponseResult<String> mybatisMapperTest() {
-        UserPo userPo = new UserPo();
+        UserPo userPo = new UserPo();   
         userPo.setLoginName("夏雨");
         List<UserPo> userPos = userMapper.mapperSelectUser(userPo);
         return new ResponseResult<>(ResponseResult.CodeStatus.OK, "mybatis测试", userPos.toString());

@@ -112,6 +112,23 @@ public class DateUtils {
     }
 
     /**
+     *  String dateStr = "Wed Sep 16 11:26:23 CST 2009";
+     * @param millSec
+     * @return
+     */
+    public static String timeFormat(String millSec)  {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+        Date date = null;
+        try {
+            date = (Date) sdf.parse(millSec);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String formatStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+        return formatStr;
+    }
+
+    /**
      * 获得当前日期 yyyy-MM-dd HH:mm:ss
      *
      * @return
