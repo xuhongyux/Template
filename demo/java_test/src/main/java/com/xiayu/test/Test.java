@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * @author xuhongyu
@@ -26,9 +27,27 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Test {
 
     public static void main(String[] args) throws  Exception{
+        streamTest();
 
-        String dateStr = "Wed Sep 16 11:26:23 CST 2009";
-        System.out.println(transferLongToDates(dateStr));
+    }
+
+
+    public static String streamTest(){
+
+
+        ArrayList<User> objects = new ArrayList<>();
+        User user = new User();
+        user.setUserName("xiayu");
+
+        User user1 = new User();
+        user1.setUserName("夏雨");
+        objects.add(user);
+        objects.add(user1);
+
+        List<User> collect = objects.stream().filter(op ->!(op.getUserName().equals("xiayu"))).collect(Collectors.toList());
+
+        return collect.toString();
+
 
     }
 
