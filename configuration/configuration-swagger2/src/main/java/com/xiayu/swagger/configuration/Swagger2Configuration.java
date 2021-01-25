@@ -46,6 +46,7 @@ public class Swagger2Configuration {
                         RequestHandlerSelectors.basePackage("com.xiayu.consumers.controller"),
                         RequestHandlerSelectors.basePackage("com.xiayu.provider.controller")
                 ))
+                // .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .paths(PathSelectors.any())
                 .build()
                 //设置接口默认的请求头

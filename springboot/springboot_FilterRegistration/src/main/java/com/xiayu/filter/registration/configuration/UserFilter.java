@@ -1,5 +1,6 @@
 package com.xiayu.filter.registration.configuration;
 
+import com.xiayu.filter.registration.utils.JsonUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.tomcat.util.buf.StringUtils;
@@ -13,8 +14,10 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Map;
 
 
 /**
@@ -55,7 +58,28 @@ public class UserFilter implements Filter {
             filterChain.doFilter(request, servletResponse);
         }
         try {
-            if(request.getParameter("Authorization").equals("xiayu")){
+            //获取请求行的参数
+            String parameter = request.getParameter("authorization");
+
+            //获取请求头的参数
+            String testHeaders = request.getHeader("TestHeaders");
+            
+            //获取请求体中的参数body
+            BufferedReader br;
+            try {
+                br = request.getReader();
+                String str, wholeStr = "";
+                while((str = br.readLine()) != null){
+                    wholeStr += str;
+                }
+                Map<String, Object> stringObjectMap = JsonUtils.json2map(wholeStr);
+                System.out.println(stringObjectMap.toString());
+            } catch (IOException e1) {
+                logger.error(""+e1);
+            }
+
+
+            if(request.getParameter("authorization").equals("xiayu")){
                 filterChain.doFilter(request, servletResponse);
             }
 

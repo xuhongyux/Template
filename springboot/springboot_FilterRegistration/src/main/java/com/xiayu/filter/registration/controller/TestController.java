@@ -37,4 +37,11 @@ public class TestController {
     public String postTest(@RequestBody String user) {
         return "你好" + user + "!__________________________________________";
     }
+
+
+    @ApiOperation(value = "get请求参数放在请求体中")
+    @GetMapping(value = "getRequestBodyTest")
+    public  String getRequestBodyTest(@RequestBody String user){
+        return "你好啊"+ user;
+    }
 }
