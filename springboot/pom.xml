@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>springboot_FilterRegistration</module>
+        <module>springboot_log</module>
         <!--<module>oauth2</module>-->
         <!--<module>gensql</module>-->
     </modules>
