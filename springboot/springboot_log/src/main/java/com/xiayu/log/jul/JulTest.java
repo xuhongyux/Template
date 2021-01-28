@@ -72,5 +72,6 @@ public class JulTest {
         logger.fine("fine");
         logger.finer("finer");
         logger.finest("finest");
+
     }
 }

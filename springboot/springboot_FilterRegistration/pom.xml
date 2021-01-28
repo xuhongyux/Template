@@ -11,7 +11,7 @@
     <groupId>com.xiayu</groupId>
     <artifactId>springboot_FilterRegistration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot</name>
+    <name>springboot_FilterRegistration</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
