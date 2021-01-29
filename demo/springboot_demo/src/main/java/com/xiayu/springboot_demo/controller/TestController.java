@@ -1,6 +1,6 @@
 package com.xiayu.springboot_demo.controller;
 
-import com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.PrivateKeyResolver;
+
 import com.xiayu.springboot_demo.annotation.AnnotationTest;
 import com.xiayu.springboot_demo.domain.UserPo;
 import com.xiayu.springboot_demo.entity.ResponseResult;
@@ -9,11 +9,9 @@ import com.xiayu.springboot_demo.params.RequestVo;
 import com.xiayu.springboot_demo.utils.ImageUtils;
 import com.xiayu.springboot_demo.utils.SnowFlakeUtil;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.juli.logging.Log;
-import org.apache.juli.logging.LogFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +32,9 @@ import java.util.List;
 @RestController
 @RequestMapping("test/")
 public class TestController {
+
+
+
 
     @Autowired
     private SnowFlakeUtil snowFlakeUtil;
