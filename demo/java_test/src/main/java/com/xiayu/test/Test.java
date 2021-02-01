@@ -5,19 +5,19 @@ import com.xiayu.admin.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
+
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
+import java.util.Set;
+import java.util.TreeSet;
+
 
 /**
  * @author xuhongyu
@@ -26,62 +26,83 @@ import java.util.stream.Collectors;
  */
 public class Test {
 
-    public static void main(String[] args) throws  Exception{
-        streamTest();
+
+    public static void main(String[] args) throws Exception {
+        List<List<String>> arrayLists = new ArrayList<>();
+        List<String> row = new ArrayList<>();
+        row.add("xiayu");
+        row.add("123123");
+        row.add("123");
+
+        List<String> row1 = new ArrayList<>();
+        row1.add("xuhongyu");
+        row1.add("123");
+
+        List<String> row2 = new ArrayList<>();
+        row1.add("xuhongyu");
+        row1.add("123321");
+
+        arrayLists.add(row);
+        arrayLists.add(row1);
+        arrayLists.add(row2);
+
+        List<List<String>> lists = accountsMerge123(arrayLists);
+        System.out.println(lists);
 
     }
+    public static List<List<String>> accountsMerge123(List<List<String>> accounts) {
+        //
+        Map<String, Integer> emailMap = new HashMap<>();
 
+        // 最小索引index -> email集
+        Map<Integer, Set<String>> indexEmailsMap = new HashMap<>();
+        //行
+        for (int i = 0; i < accounts.size(); i++) {
+            // 该账号email集的最小索引index
+            int minIndex = i;
+            for (int j = 1; j < accounts.get(i).size(); j++) {
+                String email = accounts.get(i).get(j);
+                if (emailMap.containsKey(email)) {
+                    minIndex = Math.min(minIndex, emailMap.get(email));
+                }
+            }
 
-    public static String streamTest(){
+            indexEmailsMap.putIfAbsent(minIndex, new TreeSet<>());
+            //列
+            for (int j = 1; j < accounts.get(i).size(); j++) {
+                String email = accounts.get(i).get(j);
+                if (emailMap.containsKey(email)) {
+                    int index = emailMap.get(email);
+                    if (index != minIndex) {
+                        for (String moveEmail : indexEmailsMap.remove(index)) {
+                            emailMap.put(moveEmail, minIndex);
 
+                            indexEmailsMap.get(minIndex).add(moveEmail);
+                        }
+                    }
+                } else {
+                    emailMap.put(email, minIndex);
 
-        ArrayList<User> objects = new ArrayList<>();
-        User user = new User();
-        user.setUserName("xiayu");
-
-        User user1 = new User();
-        user1.setUserName("夏雨");
-        objects.add(user);
-        objects.add(user1);
-
-        List<User> collect = objects.stream().filter(op ->!(op.getUserName().equals("xiayu"))).collect(Collectors.toList());
-
-        return collect.toString();
-
-
-    }
-
-    public static String transferLongToDates(String millSec)  {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
-
-        Date date = null;
-        try {
-            date = (Date) sdf.parse(millSec);
-        } catch (ParseException e) {
-            e.printStackTrace();
+                    indexEmailsMap.get(minIndex).add(email);
+                }
+            }
         }
 
-        String formatStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-        return formatStr2;
-    }
-
-    public static String transferLongToDate(String millSec) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
-        Date date = new Date(Long.parseLong(millSec));
-        return sdf.format(date);
-    }
-
-    public static String getOkDate(String date) {
-        try {
-            Date date1 = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH).parse(date);
-            //格式化
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            return sdf.format(date1);
-        } catch (Exception e) {
-            e.printStackTrace();
+        List<List<String>> result = new LinkedList<>();
+      // 整理结果
+        for (int key:indexEmailsMap.keySet()) {
+            List<String> r = (List<String>) indexEmailsMap.get(key);
+            Collections.sort(r);
+            r.add(0, accounts.get(key).get(0));
+            result.add(r);
         }
-        return null;
+
+        return result;
     }
+
+
+
+
+
 
 }
