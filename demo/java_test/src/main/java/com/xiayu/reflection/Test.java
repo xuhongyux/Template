@@ -28,9 +28,6 @@ public class Test {
             Object o2 = declaredConstructor.newInstance();
 
 
-
-
-
             /*以下调用带参的、私有构造函数*/
             Class<?> userPoParam = Class.forName("com.xiayu.reflection.UserPo");
             Constructor<?> declaredConstructor1 = userPoParam.getDeclaredConstructor(String.class);

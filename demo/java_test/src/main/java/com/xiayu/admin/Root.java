@@ -8,6 +8,6 @@ import lombok.Data;
  * @create 2021-01-13-14:41
  */
 @Data
-public class Root {
+public class Root extends  Psrson {
     private  String name;
 }

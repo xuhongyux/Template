@@ -6,9 +6,15 @@ package com.xiayu.reflection;
  * @create 2021-02-02-11:58
  */
 public class UserPo {
-
+    public static final  String  xiayu = "夏雨";
+    private static final  String  xuhongyu = "许洪雨";
     private UserPo(){
 
+    }
+
+    @Override
+    public  String toString(){
+        return "hello ";
     }
 
     private UserPo(String userName){

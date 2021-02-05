@@ -25,35 +25,17 @@ import java.util.TreeSet;
  * @describe
  * @create 2021-01-12-18:48
  */
-public class Test {
-
+public  abstract class Test {
+    private String a;
 
     public static void main(String[] args) throws Exception {
-        List<List<String>> arrayLists = new ArrayList<>();
-        List<String> row = new ArrayList<>();
-        row.add("xiayu");
-        row.add("123123");
-        row.add("123");
-
-        List<String> row1 = new ArrayList<>();
-        row1.add("xuhongyu");
-        row1.add("123");
-
-        List<String> row2 = new ArrayList<>();
-        row1.add("xuhongyu");
-        row1.add("123321");
-
-        arrayLists.add(row);
-        arrayLists.add(row1);
-        arrayLists.add(row2);
-
-        List<List<String>> lists = accountsMerge(arrayLists);
-        System.out.println(lists);
-
+        ArrayList<Object> objects = new ArrayList<>();
+        boolean b = objects instanceof Object;
+        System.out.println(b);
 
 
     }
-    public static List<List<String>> accountsMerge(List<List<String>> accounts) {
+    public  List<List<String>> accountsMerge(List<List<String>> accounts) {
         if (accounts.size() < 2) { // 快速返回
             return accounts;
         }
