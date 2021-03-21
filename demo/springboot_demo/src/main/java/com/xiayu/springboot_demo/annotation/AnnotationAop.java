@@ -18,10 +18,11 @@ import java.lang.reflect.Method;
 @Aspect
 @Component
 public class AnnotationAop {
-
+    private volatile static  String  a;
     //AOP扫描的路径  并且在有注解AnnotationTest的时候进行处理
     @Pointcut(value = "execution(* com.xiayu.springboot_demo.*.*.*(..)) && @annotation(com.xiayu.springboot_demo.annotation.AnnotationTest)")
     public void addAdvice() {
+
     }
 
     //环绕模式
