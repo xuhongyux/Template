@@ -25,17 +25,18 @@ import java.util.TreeSet;
  * @describe
  * @create 2021-01-12-18:48
  */
-public  abstract class Test {
+public abstract class Test {
     private String a;
 
     public static void main(String[] args) throws Exception {
-        ArrayList<Object> objects = new ArrayList<>();
-        boolean b = objects instanceof Object;
+        long a = Long.MAX_VALUE;
+        long b =  60*60*24*360;
+        System.out.println(a);
         System.out.println(b);
-
-
+        System.out.println(a/b);
     }
-    public  List<List<String>> accountsMerge(List<List<String>> accounts) {
+
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
         if (accounts.size() < 2) { // 快速返回
             return accounts;
         }
@@ -126,10 +127,10 @@ public  abstract class Test {
         }
 
         List<List<String>> result = new LinkedList<>();
-      // 整理结果
-        for (int key:indexEmailsMap.keySet()) {
-          //  List<String> res = (List<String>) indexEmailsMap.get(key);
-            if(indexEmailsMap.get(key).size() == 0){
+        // 整理结果
+        for (int key : indexEmailsMap.keySet()) {
+            //  List<String> res = (List<String>) indexEmailsMap.get(key);
+            if (indexEmailsMap.get(key).size() == 0) {
                 break;
             }
             List<String> res = new ArrayList<>(indexEmailsMap.get(key));
@@ -140,10 +141,6 @@ public  abstract class Test {
 
         return result;
     }
-
-
-
-
 
 
 }

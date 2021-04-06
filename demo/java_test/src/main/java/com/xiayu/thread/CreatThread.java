@@ -65,6 +65,7 @@ class RunnableTest implements  Runnable{
     @Override
     public void run() {
         try {
+            // 睡两秒
             Thread.sleep(2222);
         } catch (InterruptedException e) {
             e.printStackTrace();

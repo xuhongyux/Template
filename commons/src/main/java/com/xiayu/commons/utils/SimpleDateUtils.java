@@ -1,5 +1,6 @@
 package com.xiayu.commons.utils;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.util.StringUtils;
 
 import java.text.ParseException;
@@ -18,7 +19,74 @@ import java.util.Locale;
  * @Author xiayu
  * @Date 2019/12/30 18:00
  */
-public class DateUtils {
+public class SimpleDateUtils {
+    public final static Integer SECONDS_IN_DAY = 24 * 60 * 60;
+
+    /**
+     * 比较两个时间相差秒 移除星期天
+     * 初始日期和结束日期为周末时忽略
+     *
+     * @param starDate 开始时间
+     * @param endDate  结束时间
+     * @return
+     */
+    public static long getWorkIntervalSecond(Date starDate, Date endDate) {
+        // 校验是否为同一天
+        if(DateUtils.isSameDay(starDate, endDate)){
+            return (endDate.getTime() - starDate.getTime()) / 1000;
+        }
+        double second = 0;
+        double millisecond = endDate.getTime() - starDate.getTime();
+        second = millisecond / (1000);
+        //移除星期天
+        int calLeaveDays = calLeaveDays(starDate, endDate);
+        second = second - calLeaveDays * SECONDS_IN_DAY;
+        return (long)second;
+    }
+
+    /**
+     * 计算两个时间休息了多少天（周六，周日）
+     * 忽略起始和结束时间
+     *
+     * @param t1
+     * @param t2
+     * @return
+     */
+    public static int calLeaveDays(Date t1, Date t2) {
+        //初始化第一个日期
+        Calendar cal1 = Calendar.getInstance();
+        //初始化第二个日期，这里的天数可以随便的设置
+        Calendar cal2 = Calendar.getInstance();
+        // 对 calendar 设置为 date 所定的日期
+        cal1.setTime(t1);
+        cal2.setTime(t2);
+        int holidays = 0;
+
+        while (cal1.compareTo(cal2) <= 0) {
+            if (cal1.get(Calendar.DAY_OF_WEEK) == 1 || cal1.get(Calendar.DAY_OF_WEEK) == 7) {
+                holidays++;
+                // System.out.println("周末："+new SimpleDateFormat("yyyy-MM-dd").format(cal1.getTime()));
+            }
+            // 向后移动一天
+            cal1.add(Calendar.DAY_OF_YEAR, 1);
+        }
+
+        //校验开始时间和结束时间是否是星期天
+        Calendar flag1 = Calendar.getInstance();
+        Calendar flag2 = Calendar.getInstance();
+        flag1.setTime(t1);
+        flag2.setTime(t2);
+
+        //当开始时间为星期天时，移除一天需要删除的时间
+        if (flag1.get(Calendar.DAY_OF_WEEK) == 1 || flag1.get(Calendar.DAY_OF_WEEK) == 7) {
+            holidays--;
+        }
+        if (flag2.get(Calendar.DAY_OF_WEEK) == 1 || flag2.get(Calendar.DAY_OF_WEEK) == 7) {
+            holidays--;
+        }
+        return holidays;
+    }
+
     /**
      * 获得多少天前的时间
      */
@@ -229,9 +297,9 @@ public class DateUtils {
         GregorianCalendar calendar = new GregorianCalendar();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         if (hour < 10) {
-            return DateUtils.getCurrentTime() + " 0" + hour;
+            return SimpleDateUtils.getCurrentTime() + " 0" + hour;
         }
-        return DateUtils.getDateByString() + " " + hour;
+        return SimpleDateUtils.getDateByString() + " " + hour;
     }
 
     /**
@@ -244,12 +312,12 @@ public class DateUtils {
         if (hour > 0) {
             hour = calendar.get(Calendar.HOUR_OF_DAY) - 1;
             if (hour < 10) {
-                return DateUtils.getDateByString() + " 0" + hour;
+                return SimpleDateUtils.getDateByString() + " 0" + hour;
             }
-            return DateUtils.getDateByString() + " " + hour;
+            return SimpleDateUtils.getDateByString() + " " + hour;
         }
         //获取当前日期前一天
-        return DateUtils.getBeforeDay() + " " + 23;
+        return SimpleDateUtils.getBeforeDay() + " " + 23;
     }
 
     /**
@@ -371,7 +439,7 @@ public class DateUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(DateUtils.getQuartList());
+        System.out.println(SimpleDateUtils.getQuartList());
     }
 
 }

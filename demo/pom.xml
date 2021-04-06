@@ -18,7 +18,7 @@
         <module>webService</module>
         <module>spring_framework</module>
         <module>java_test</module>
-        <module>springmvc</module>
+        <!--<module>springmvc</module>-->
         <!--<module>oauth2</module>-->
         <!--<module>gensql</module>-->
     </modules>

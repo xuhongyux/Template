@@ -612,12 +612,12 @@ public class MapperUtils {
         return val1 / (val2 + 0.0D);
     }
 
-//    public static double divisor(long val1, int val2) {
-//        if (val1 == null || val2 == null || val2 == 0) {
-//            return 0.0;
-//        }
-//        return val1 / (val2 + 0.0D);
-//    }
+    public static double divisor(Long val1, Integer val2) {
+        if (val1 == null || val2 == null || val2 == 0) {
+            return 0.0;
+        }
+        return val1 / (val2 + 0.0D);
+    }
 
     public static double divisor(Integer val1, Double val2) {
         if (val1 == null || val2 == null || val2 == 0) {
