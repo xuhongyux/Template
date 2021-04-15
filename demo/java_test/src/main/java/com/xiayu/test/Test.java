@@ -1,5 +1,6 @@
 package com.xiayu.test;
 
+import com.google.common.collect.Maps;
 import com.xiayu.admin.Root;
 import com.xiayu.admin.User;
 
@@ -29,6 +30,21 @@ public abstract class Test {
     private String a;
 
     public static void main(String[] args) throws Exception {
+        Map<String , String> objectObjectHashMap = Maps.newHashMap();
+        String s = objectObjectHashMap.get("123");
+        System.out.println(s);
+
+    }
+
+
+
+    public void doubleLong(){
+        Double a = new Double(1.1848009E7);
+        double b = a - 10000000;
+        System.out.println(b);
+    }
+
+    public void  longTest(){
         long a = Long.MAX_VALUE;
         long b =  60*60*24*360;
         System.out.println(a);
