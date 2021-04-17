@@ -1,4 +1,4 @@
-package com.xiayu.num1;
+package com.xiayu.params.num1;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -24,10 +24,6 @@ public class ThreadPool {
 
         );
 
-
-
-
-
 //        ScheduledExecutorService service = Executors.newScheduledThreadPool(4);
 //        //以固定得频率执行这个任务
 //        service.scheduleAtFixedRate(() -> {
