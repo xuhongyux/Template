@@ -5,6 +5,7 @@ import com.xiayu.admin.Root;
 import com.xiayu.admin.User;
 
 import java.awt.*;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,14 +28,40 @@ import java.util.TreeSet;
  * @create 2021-01-12-18:48
  */
 public abstract class Test {
-    private String a;
 
     public static void main(String[] args) throws Exception {
-        Map<String , String> objectObjectHashMap = Maps.newHashMap();
-        String s = objectObjectHashMap.get("123");
+        double a = 1D;
+        double b = 1.00000D;
+
+        double v = changeDecimal(a, 7);
+        double aadv = changeDecimal(b, 7);
+        System.out.println(v);
+        System.out.println(aadv);
+
+        double s = keepPrecision(String.valueOf(a), 3);
         System.out.println(s);
 
     }
+    public static double keepPrecision(String number, int precision) {
+        BigDecimal bg = new BigDecimal(number);
+        BigDecimal bigDecimal = bg.setScale(precision, BigDecimal.ROUND_HALF_UP);
+        return bigDecimal.doubleValue();
+    }
+
+
+    /**
+     * 修改精度
+     *
+     * @param value
+     * @param num
+     * @return
+     */
+    public static double changeDecimal(double value, int num) {
+        BigDecimal b = new BigDecimal(value);
+        double v = b.setScale(num, BigDecimal.ROUND_DOWN).doubleValue();
+        return v;
+    }
+
 
 
 
