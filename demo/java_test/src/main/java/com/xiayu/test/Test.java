@@ -29,17 +29,16 @@ import java.util.TreeSet;
  */
 public abstract class Test {
 
+
+
     public static void main(String[] args) throws Exception {
-        double a = 1D;
-        double b = 1.00000D;
-
-        double v = changeDecimal(a, 7);
-        double aadv = changeDecimal(b, 7);
-        System.out.println(v);
-        System.out.println(aadv);
-
-        double s = keepPrecision(String.valueOf(a), 3);
-        System.out.println(s);
+        Object a = -1.3D;
+        String s = String.valueOf(a);
+        if(a instanceof Double){
+         Double  aa =  (Double)a;
+            int b = aa.intValue();
+        }
+        System.out.println();
 
     }
     public static double keepPrecision(String number, int precision) {
