@@ -1,5 +1,7 @@
 package com.xiayu.collection;
 
+import com.beust.jcommander.internal.Lists;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +12,28 @@ import java.util.List;
 public class ListTest {
 
     public static void main(String[] args) {
-        List<String> list1 = new ArrayList<>();
-        list1.add("123");
-        list1.set(1,"s");
-        System.out.println(list1);
+        List<String> stringList = Lists.newArrayList();
+        stringList.add("1");
+        stringList.add("2");
+        stringList.add("3");
+        stringList.add("4");
+        stringList.add("5");
+        stringList.add("7");
+        stringList.add("8");
+        stringList.add("9");
+        stringList.add("7");
+        stringList.add("8");
+        stringList.add("9");
+        stringList.add("9");
+        stringList.add("9");
+        stringList.add("9");
+        stringList.add("9");
+        stringList.add("9");
+        stringList.add("9");
+
+        boolean remove = stringList.remove("9");
+        System.out.println(stringList);
+
 
     }
 }
