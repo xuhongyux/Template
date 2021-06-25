@@ -32,3 +32,4 @@ SnowFlake:
   datacenterId: 10
   # 机器码 5bit
   machineId: 10
+
