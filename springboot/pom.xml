@@ -15,6 +15,7 @@
         <module>springboot_FilterRegistration</module>
         <module>springboot_log</module>
         <module>springboot_swagger_boostrap</module>
+        <module>springboot_test</module>
         <!--<module>oauth2</module>-->
         <!--<module>gensql</module>-->
     </modules>
