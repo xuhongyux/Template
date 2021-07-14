@@ -1,5 +1,6 @@
 package com.xiayu.test;
 
+
 import com.google.common.collect.Maps;
 import com.xiayu.admin.Root;
 import com.xiayu.admin.User;
@@ -27,18 +28,21 @@ import java.util.TreeSet;
  * @describe
  * @create 2021-01-12-18:48
  */
-public abstract class Test {
+public  class Test {
 
 
+    public  Integer a = 9001/3;
 
     public static void main(String[] args) throws Exception {
-        Object a = -1.3D;
-        String s = String.valueOf(a);
-        if(a instanceof Double){
-         Double  aa =  (Double)a;
-            int b = aa.intValue();
-        }
+        UserBo userBo = new UserBo<Date>();
+        userBo.setContent(new Date());
+        userBo.setName("");
+        userBo.setPassword("");
+
+
+
         System.out.println();
+
 
     }
     public static double keepPrecision(String number, int precision) {

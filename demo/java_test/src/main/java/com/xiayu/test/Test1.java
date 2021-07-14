@@ -11,6 +11,9 @@ import java.util.stream.Collectors;
  */
 public class Test1 {
     public static void main(String[] args) {
+
+        Test test = new Test();
+       int b =  test.a;
         List<String> stringList = Lists.newArrayList();
         stringList.add("1");
         stringList.add("2");

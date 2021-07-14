@@ -28,7 +28,7 @@ public class TestController {
         try {
             List<Double> objects1 = Lists.newArrayList();
             Date date = new Date();
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 objects1.add(10000000000009999999999956756756756D);
             }
             ArrayList<Object> objects = Lists.newArrayList();
@@ -55,6 +55,7 @@ public class TestController {
             System.out.println(sum4);
             System.out.println(sum5);
             System.out.println(sum5);
+            System.out.println(objects.toString());
 
             objects1.clear();
         }  catch (Exception e) {
