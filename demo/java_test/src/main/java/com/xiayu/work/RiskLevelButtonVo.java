@@ -3,6 +3,8 @@ package com.xiayu.work;
 //import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.util.Base64;
 
 /**
@@ -11,7 +13,7 @@ import java.util.Base64;
  * @create 2021-01-12-10:51
  */
 @Data
-public class RiskLevelButtonVo {
+public class RiskLevelButtonVo implements Cloneable {
    // @ApiModelProperty(value = "操作人工号", required = true)
     private String operatorCode;
 
@@ -46,6 +48,11 @@ public class RiskLevelButtonVo {
     private static String SUFFIX = "Base64.encode(paramStr).replace(/\\r/g,\"\").replace(/\\n/g,\"\").replace(/\\+/g,\"%2B\")";
 
     @Override
+    public Object clone() throws CloneNotSupportedException {
+        RiskLevelButtonVo newStu = (RiskLevelButtonVo) super.clone();
+        return newStu;
+    }
+    @Override
     public String toString() {
         return "operatorCode=" + this.operatorCode + "&comCode=" + this.comCode + "&clientCode=" + this.clientCode
                 + "&currency=" + this.currency
@@ -61,26 +68,6 @@ public class RiskLevelButtonVo {
         System.out.println(s);
         String encode = PREFIX + Base64.getEncoder().encodeToString(bytes) ;
         return encode;
-    }
-
-    public static void main(String[] args) {
-        RiskLevelButtonVo riskLevelButtonVo = new RiskLevelButtonVo();
-        riskLevelButtonVo.setOperatorCode("operatorCode");
-        riskLevelButtonVo.setComCode("comCode");
-        riskLevelButtonVo.setClientCode("clientCode");
-        riskLevelButtonVo.setCurrency("currency");
-        riskLevelButtonVo.setPayType("2");
-        riskLevelButtonVo.setPolicyNo("policyNo");
-        riskLevelButtonVo.setClaimNo("claimNo");
-        riskLevelButtonVo.setRegistNo("registNo");
-
-        String s = riskLevelButtonVo.toString();
-        String s1 = riskLevelButtonVo.toStringBase64();
-
-        System.out.println(s);
-        System.out.println(s1);
-
-
     }
 
 

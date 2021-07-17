@@ -10,7 +10,7 @@ import java.util.List;
  * @describe
  * @create 2020-12-28-15:57
  */
-@Data
+
 public class User {
     private String userName;
 
@@ -21,5 +21,17 @@ public class User {
     }
 
     public User(){
+    }
+
+
+
+    @Override
+    public  String toString(){
+        return "sfasdfas";
+    }
+
+    public static void main(String[] args) {
+        User xiuyuy = new User("xiuyuy");
+        System.out.println(xiuyuy.toString());
     }
 }

@@ -14,6 +14,9 @@ public class RelectionMethod {
     public static void main(String[] args) throws Exception {
 
         Class<?> userPoClass = Class.forName("com.xiayu.reflection.UserPo");
+
+        String name2 = userPoClass.getName();
+        System.out.println(name2);
         /**
          * 返回这个类或者超类的共有域
          */

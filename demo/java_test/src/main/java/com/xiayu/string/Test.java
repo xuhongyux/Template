@@ -10,8 +10,8 @@ public class Test {
     public static void main(String[] args) {
         String a = "许洪雨";
         String b = "许";
-        Boolean aBoolean = stringEqualStartChar(a, b);
-        System.out.println(aBoolean);
+        stringEqualStartChar();
+
     }
     /**
      * 判断第二个字符，和第一个字符的前半部分是否一致
@@ -20,12 +20,11 @@ public class Test {
      * @param startChar
      * @return
      */
-    public static Boolean stringEqualStartChar(String sourceString, String startChar) {
-        if ((!StringUtils.isEmpty(sourceString)) && (!StringUtils.isEmpty(startChar))) {
-            int length = startChar.length();
-            String substring = sourceString.substring(0, length);
-            return  substring.equals(startChar);
-        }
+    public static Boolean stringEqualStartChar() {
+       StringBuilder a = new StringBuilder();
+        a.append("许洪雨");
+       String b = "雨";
+        System.out.println(a.deleteCharAt(a.length() - b.length()-1).toString());
         return  false;
     }
 }
