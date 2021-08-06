@@ -16,6 +16,7 @@
         <module>springboot_log</module>
         <module>springboot_swagger_boostrap</module>
         <module>springboot_test</module>
+        <module>springboot_http</module>
         <!--<module>oauth2</module>-->
         <!--<module>gensql</module>-->
     </modules>
