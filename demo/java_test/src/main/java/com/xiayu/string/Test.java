@@ -1,6 +1,6 @@
 package com.xiayu.string;
 
-import org.apache.commons.lang3.StringUtils;
+
 
 /**
  * @author xuhongyu
@@ -10,7 +10,13 @@ public class Test {
     public static void main(String[] args) {
         String a = "许洪雨";
         String b = "许";
-        stringEqualStartChar();
+       // stringEqualStartChar();
+        stringTrim("xu ");
+
+
+        System.out.println(stringTrim("xu"));
+        System.out.println(stringTrim(" xu "));
+        System.out.println(stringTrim("   xu "));
 
     }
     /**
@@ -27,4 +33,16 @@ public class Test {
         System.out.println(a.deleteCharAt(a.length() - b.length()-1).toString());
         return  false;
     }
+
+    /**
+     * 移除String前后空格
+     * @return
+     */
+    public static String stringTrim(String str){
+        String trim = str.trim();
+        return trim;
+
+
+    }
+
 }

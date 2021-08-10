@@ -3,20 +3,11 @@ package com.xiayu.filter.registration.configuration;
 import com.xiayu.filter.registration.utils.JsonUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.tomcat.util.buf.StringUtils;
-import org.junit.internal.runners.model.EachTestNotifier;
-import org.springframework.beans.BeanUtils;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Map;
 
 
@@ -63,7 +54,7 @@ public class UserFilter implements Filter {
 
             //获取请求头的参数
             String testHeaders = request.getHeader("TestHeaders");
-            
+
             //获取请求体中的参数body
             BufferedReader br;
             try {
