@@ -8,7 +8,7 @@
 ## 项目介绍
 整个项目是以微服务的模板来构建，会在其中添加一些其他框架的Demo
 
-## 模块介绍
+## SpringCloud
 ### commons 
 常用的类的集合，工具类，常用实体类等
  + entity 用来放置一些实体类相关的常用的类
@@ -45,3 +45,4 @@
 | Swagger                    | API 文档生成工具                                         |
 | HikariCP                   | 数据库连接池                                             |
 | OKHttp3                    | 轻量级网络框架                                           |
+ ## SpringBoot

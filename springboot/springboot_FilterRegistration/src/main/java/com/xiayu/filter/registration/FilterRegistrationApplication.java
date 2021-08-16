@@ -1,7 +1,6 @@
 package com.xiayu.filter.registration;
 
 import com.xiayu.filter.registration.configuration.UserFilter;
-import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

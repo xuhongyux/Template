@@ -2,6 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -9,25 +11,55 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>springboot</artifactId>
     <groupId>com.xiayu</groupId>
+    <artifactId>springcloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!--开发者个人信息-->
+    <developers>
+        <developer>
+            <id>xuhongyu</id>
+            <name>xiayu</name>
+            <email>xiayuxuxu@qq.com</email>
+        </developer>
+    </developers>
+
+    <!--引入的模块-->
     <modules>
-        <module>springboot_demo</module>
-        <module>springboot_template</module>
-        <module>springboot_FilterRegistration</module>
-<!--        <module>springboot_http</module>-->
-        <module>springboot_log</module>
-        <module>springboot_test</module>
+        <module>dependencies</module>
+        <module>oauth2Service</module>
+        <module>provider</module>
+        <module>gateway</module>
+        <module>configuration</module>
+        <module>commons</module>
+        <module>consumers</module>
+
     </modules>
 
 
+    <!--管理依赖-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!--这个项目用来管理其他项目的pom引用信息 依赖Maven的传递机制-->
+                <groupId>com.xiayu</groupId>
+                <artifactId>dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <!--  公共依赖 -一般都会用到-->
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -38,30 +70,23 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+        <!--日志注入-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-logging</artifactId>-->
+<!--        </dependency>-->
 
-        <!-- swagger相关-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
-            <version>1.9.6</version>
-        </dependency>
 
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
 
+<!--        &lt;!&ndash;密码加密&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.ulisesbocchio</groupId>-->
+<!--            <artifactId>jasypt-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
-
     <!--
-  scope属性
+    scope属性
 依赖范围控制哪些依赖在哪些classpath 中可用，哪些依赖包含在一个应用中。
 
 compile （编译）如果没有提供一个范围，那该依赖的范围就是编译范围。编译范围依赖在所有的classpath中可用，同时它们也会被打包。
@@ -74,7 +99,7 @@ runtime （运行时） 依赖在运行和测试系统的时候需要，但在�
 test （测试）范围依赖 在一般的编译和运行时都不需要，它们只有在测试编译和测试运行阶段可用。
 
 system （系统）范围依赖与provided类似，但是你必须显式的提供一个对于本地系统中JAR文件的路径。这么做是为了允许基于本地对象编译，而这些对象是系统类库的一部分。
-  -->
+    -->
 
     <!--引入Spring镜像服务器-->
     <repositories>
@@ -114,4 +139,5 @@ system （系统）范围依赖与provided类似，但是你必须显式的提�
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
 </project>

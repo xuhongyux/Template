@@ -7,7 +7,6 @@ import com.xiayu.springboot_demo.entity.ResponseResult;
 import com.xiayu.springboot_demo.mapper.TestUserMapper;
 import com.xiayu.springboot_demo.mapper.TestUserRootMapper;
 import com.xiayu.springboot_demo.mapper.UserBeanMapper;
-import com.xiayu.springboot_demo.mapper.UserMapper;
 import com.xiayu.springboot_demo.service.DataService;
 import com.xiayu.springboot_demo.utils.MapperUtils;
 import io.swagger.annotations.Api;

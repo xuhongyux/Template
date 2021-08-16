@@ -1,4 +1,4 @@
-package com.xiayu.log;
+package com.xiayu.template;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,11 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author xuhongyu
  * @describe
- * @create 2021-01-28-11:41
+ * @create 2021-08-11-5:48 下午
  */
 @SpringBootApplication
-public class SpringbootLogApplication {
+public class TemplateApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootLogApplication.class,args);
+        SpringApplication.run(TemplateApplication.class,args);
     }
 }
