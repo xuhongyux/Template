@@ -23,6 +23,7 @@
 <!--        <module>springboot_http</module>-->
         <module>springboot_log</module>
         <module>springboot_test</module>
+        <module>springboot_mvc</module>
     </modules>
 
 
@@ -55,6 +56,19 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.66</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.1-jre</version>
         </dependency>
 
     </dependencies>

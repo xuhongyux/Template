@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" filepath="$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" filepath="$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" filepath="$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_template/springboot_template.iml" filepath="$PROJECT_DIR$/springboot/springboot_template/springboot_template.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_test/springboot_test.iml" filepath="$PROJECT_DIR$/springboot/springboot_test/springboot_test.iml" />
     </modules>

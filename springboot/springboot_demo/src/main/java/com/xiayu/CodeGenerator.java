@@ -20,7 +20,7 @@ public class CodeGenerator {
     final static String packageName = "com.xiayu";
     final static String project_path = "/Users/idea_code/Template/springboot/springboot_demo";
     final static String schameName = "xiayu";
-    final static String author = "xhy";
+    final static String author = "xiayu";
     final static String dbpath = "110.40.181.41:3306";
     final static String db_username = "root";
     final static String db_password = "root";
