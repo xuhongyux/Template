@@ -36,6 +36,10 @@ SnowFlake:
  machineId: 10
 
 
+logging:
+  level:
+    com.lhh.myspringboot.dao.AdminDao : debug
+
 userpo:
   name: @userPoName@
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiayu.mapper.UserPlusMapper">
+
+    <update id="updateUserByName">
+        UPDATE user_plus
+        <set>
+            <if test="userName = 'xiayu' ">
+                age=#{age}x`x`,
+            </if>
+            <if test="userName != 'xiayu' ">
+                age=${#{age} +1},
+            </if>
+
+        </set>
+        <where>
+            <if test="userName != null">
+                and name = #{userName}
+            </if>
+        </where>
+    </update>
+
+
+    <select id="getUserNameById" resultType="java.lang.String">
+        SELECT u.name FROM  user_plus u
+        WHERE u.id=#{id}
+
+    </select>
+
+</mapper>

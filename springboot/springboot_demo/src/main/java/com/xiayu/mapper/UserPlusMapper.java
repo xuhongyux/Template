@@ -3,6 +3,7 @@ package com.xiayu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiayu.domain.UserPlus;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author xuhongyu
@@ -10,4 +11,21 @@ import com.xiayu.domain.UserPlus;
  * @create 2021-08-13-5:59 下午
  */
 public interface UserPlusMapper  extends BaseMapper<UserPlus> {
+
+
+    /**
+     * 修改参数
+     * @param userName
+     * @param age
+     * @return
+     */
+    Integer updateUserByName(@Param("userName") String userName,
+                                   @Param("age") Long age);
+
+    /**
+     * 根据id 获取姓名
+     * @param id
+     * @return
+     */
+    String getUserNameById(@Param("id") Long id);
 }
