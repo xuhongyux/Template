@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiayu.domain.UserPlus;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author xuhongyu
  * @describe
@@ -27,5 +29,8 @@ public interface UserPlusMapper  extends BaseMapper<UserPlus> {
      * @param id
      * @return
      */
-    String getUserNameById(@Param("id") Long id);
+    String getUserNameById(@Param("id") Long id, @Param("name") String name);
+
+    List<String> getUserNameByAge(@Param("ages") List<Long> ages);
+
 }

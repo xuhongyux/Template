@@ -22,9 +22,24 @@
 
 
     <select id="getUserNameById" resultType="java.lang.String">
-        SELECT u.name FROM  user_plus u
-        WHERE u.id=#{id}
+        SELECT u.name FROM user_plus u
+        WHERE 1=1
+        <if test="id != null">
+            and u.id = #{id}
+        </if>
+        <if test="name != null and name != ''">
+            and u.name = #{name}
+        </if>
+    </select>
 
+    <select id="getUserNameByAge" resultType="String" parameterType="list">
+        SELECT u.name FROM user_plus u
+        <where>
+            u.age in
+            <foreach collection="ages" index="index" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </where>
     </select>
 
 </mapper>

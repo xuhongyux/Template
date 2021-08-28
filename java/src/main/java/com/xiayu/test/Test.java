@@ -34,6 +34,10 @@ public  class Test {
     public  Integer a = 9001/3;
 
     public static void main(String[] args) throws Exception {
+        StringBuffer stringBuffer = new StringBuffer();
+        String a= null;
+        stringBuffer.append(a);
+
         UserBo userBo = new UserBo<Date>();
         userBo.setContent(new Date());
         userBo.setName("");

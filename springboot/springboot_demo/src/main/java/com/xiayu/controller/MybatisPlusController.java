@@ -3,6 +3,7 @@ package com.xiayu.controller;
 import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiayu.api.IUserPlusService;
 import com.xiayu.domain.UserPlus;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author xuhongyu
@@ -85,8 +89,14 @@ public class MybatisPlusController {
     @ApiOperation(value = "手写xml接口", notes = "")
     @PostMapping("/xmlSelect")
     public ResponseResult<Object> xmlSelect(@RequestParam String userName, @RequestParam Long id){
-
-        String userNameById = userPlus.getUserNameById(id);
+        if (StringUtils.isBlank(userName)) {
+            userName = "";
+        }
+        String userNameById = userPlus.getUserNameById(id,userName);
+        List<Long> objects = new ArrayList<>();
+        objects.add(3L);
+        objects.add(17L);
+        List<String> userNameByAge = userPlus.getUserNameByAge(objects);
         return new ResponseResult(200,"更新接口" ,userNameById);
     }
 

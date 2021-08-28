@@ -38,7 +38,7 @@ SnowFlake:
 
 logging:
   level:
-    com.lhh.myspringboot.dao.AdminDao : debug
+    com.lhh.myspringboot.dao.AdminDao : info
 
 userpo:
   name: @userPoName@
