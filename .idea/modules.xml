@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Template.iml" filepath="$PROJECT_DIR$/.idea/Template.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/java_test.iml" filepath="$PROJECT_DIR$/java/java_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_test/java_test.iml" filepath="$PROJECT_DIR$/java_test/java_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot.iml" filepath="$PROJECT_DIR$/springboot/springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" filepath="$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" />
