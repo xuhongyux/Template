@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: feign-consumer
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  output:
+    ansi:
+      enabled: always
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 110.40.181.41:8848
+
+
+server:
+  port: 9001
+
+
+
+logging:
+  level:
+    com.lhh.myspringboot.dao.AdminDao : info
+
+
+

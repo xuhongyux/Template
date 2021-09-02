@@ -3,11 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Template.iml" filepath="$PROJECT_DIR$/.idea/Template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_feign/feign_consumer/feign_consumer.iml" filepath="$PROJECT_DIR$/springboot_feign/feign_consumer/feign_consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_feign/feign_provider/feign_provider.iml" filepath="$PROJECT_DIR$/springboot_feign/feign_provider/feign_provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_test/java_test.iml" filepath="$PROJECT_DIR$/java_test/java_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot.iml" filepath="$PROJECT_DIR$/springboot/springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" filepath="$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_feign/springboot_feign.iml" filepath="$PROJECT_DIR$/springboot_feign/springboot_feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" filepath="$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" filepath="$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_template/springboot_template.iml" filepath="$PROJECT_DIR$/springboot/springboot_template/springboot_template.iml" />
