@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot.iml" filepath="$PROJECT_DIR$/springboot/springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" filepath="$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot/springboot_code_generator/springboot_code_generator.iml" filepath="$PROJECT_DIR$/springboot/springboot_code_generator/springboot_code_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/springboot_feign.iml" filepath="$PROJECT_DIR$/springboot_feign/springboot_feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" filepath="$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" />

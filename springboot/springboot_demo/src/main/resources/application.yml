@@ -2,19 +2,16 @@ spring:
   application:
     name: springboot
   profiles:
-    active: @profiles.active@
+    active: dev
   main:
     allow-bean-definition-overriding: true
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-  output:
-    ansi:
-      enabled: always
 
 
 mybatis:
-  type-aliases-package: com.xiayu.springboot_demo.domain
+  type-aliases-package: com.xiayu.demo.domain
   mapper-locations: classpath:mapper/*.xml
   #开启数据库日志
   configuration:
@@ -41,6 +38,6 @@ logging:
     com.lhh.myspringboot.dao.AdminDao : info
 
 userpo:
-  name: @userPoName@
+  name: xiayu
 
 
