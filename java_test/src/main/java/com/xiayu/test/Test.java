@@ -31,43 +31,21 @@ import java.util.TreeSet;
 public  class Test {
 
 
-    public  Integer a = 9001/3;
-
-    public static void main(String[] args) throws Exception {
-        StringBuffer stringBuffer = new StringBuffer();
-        String a= null;
-        stringBuffer.append(a);
-
-        UserBo userBo = new UserBo<Date>();
-        userBo.setContent(new Date());
-        userBo.setName("");
-        userBo.setPassword("");
 
 
+        /**
+         * 修改精度
+         *
+         * @param value
+         * @param num
+         * @return
+         */
+        public static double changeDecimal(double value, int num) {
+            BigDecimal b = new BigDecimal(value);
+            double v = b.setScale(num, BigDecimal.ROUND_DOWN).doubleValue();
+            return v;
+        }
 
-        System.out.println();
-
-
-    }
-    public static double keepPrecision(String number, int precision) {
-        BigDecimal bg = new BigDecimal(number);
-        BigDecimal bigDecimal = bg.setScale(precision, BigDecimal.ROUND_HALF_UP);
-        return bigDecimal.doubleValue();
-    }
-
-
-    /**
-     * 修改精度
-     *
-     * @param value
-     * @param num
-     * @return
-     */
-    public static double changeDecimal(double value, int num) {
-        BigDecimal b = new BigDecimal(value);
-        double v = b.setScale(num, BigDecimal.ROUND_DOWN).doubleValue();
-        return v;
-    }
 
 
 

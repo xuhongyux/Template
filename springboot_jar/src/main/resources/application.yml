@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: springboot_jar
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis:
+  type-aliases-package: com.xiayu.springboot_jar.domain
+  mapper-locations: classpath:mapper/*.xml
+  #开启数据库日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+server:
+  port: 9999
+
+
+redis:
+  globalSessionTimeout: 600
+
+#########################################
+## 雪花算法参数
+SnowFlake:
+  # 数据中心 5bit
+ datacenterId: 10
+ # 机器码 5bit
+ machineId: 10
+
+
+logging:
+  level:
+    com.lhh.myspringboot.dao.AdminDao : info
+
+userpo:
+  name: xiayu
+
+
