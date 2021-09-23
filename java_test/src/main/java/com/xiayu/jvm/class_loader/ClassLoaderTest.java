@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 /**
  * @author xuhongyu
- * @describe
+ * @describe 类的加载机制
  * @create 2021-09-22-11:29 上午
  */
 public class ClassLoaderTest {
