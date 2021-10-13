@@ -12,8 +12,6 @@ public class FinalizeTest {
 
     public static FinalizeTest SAVE_HOOK = null;
 
-
-    //
     @Override
     protected void finalize() throws Throwable {
 
@@ -28,7 +26,6 @@ public class FinalizeTest {
         SAVE_HOOK = new FinalizeTest();
 
         //对象第一次成功拯救自己
-
         SAVE_HOOK = null;
         System.gc();
 

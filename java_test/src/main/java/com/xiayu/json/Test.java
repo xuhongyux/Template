@@ -17,6 +17,7 @@ import java.util.Set;
  */
 public class Test {
 
+
     public static void main(String[] args) {
         Role role = new Role();
         List<String> objects = Lists.newArrayList();
@@ -108,9 +109,6 @@ public class Test {
         if (jsonElement == null) {
             return false;
         }
-        if (!jsonElement.isJsonObject()) {
-            return false;
-        }
-        return true;
+        return jsonElement.isJsonObject();
     }
 }

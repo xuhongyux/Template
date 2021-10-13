@@ -15,8 +15,18 @@ public class Overload {
      */
     public static void sayHello(Object arg) {
 
+        Overload overload = new Overload();
+        overload.test();
+
+
+
+
         System.out.println("hello Object");
 
+    }
+
+     void test(){
+        System.out.println("safdsf");
     }
 
     /**

@@ -27,6 +27,9 @@ public class MapTest {
 
         hashMap.remove("123");
         System.out.println();
+        String s = hashMap.get("");
+        System.out.println();
+
     }
 
 

@@ -19,6 +19,9 @@ public class UserPo {
         this.name = name;
         this.age = age;
     }
+    public UserPo(){
+
+    }
 
     public String getName() {
         return name;
