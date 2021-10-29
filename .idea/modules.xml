@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Template.iml" filepath="$PROJECT_DIR$/.idea/Template.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/feign_consumer/feign_consumer.iml" filepath="$PROJECT_DIR$/springboot_feign/feign_consumer/feign_consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/feign_provider/feign_provider.iml" filepath="$PROJECT_DIR$/springboot_feign/feign_provider/feign_provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_test/java_test.iml" filepath="$PROJECT_DIR$/java_test/java_test.iml" />
