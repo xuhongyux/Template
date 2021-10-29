@@ -4,9 +4,14 @@ import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import org.junit.Test;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+
+import static java.time.OffsetDateTime.now;
 
 /**
  * @author xuhongyu
@@ -29,8 +34,26 @@ public class TimeForamt {
         String dateStr1 = "2020/11/11";
         DateTime parse = DateUtil.parse(dateStr);
         DateTime parse1 = DateUtil.parse(dateStr1);
+        long l = parse.toInstant().toEpochMilli();
+        System.out.println(l);
         System.out.println(parse);
         System.out.println(parse1);
 
     }
+
+
+    @Test
+    public void dateTimeToLong(){
+        LocalDateTime now = LocalDateTime.now();
+        long l = now.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        System.out.println(l);
+    }
+
+    @Test
+    public void longToDateTime(){
+        Long longL = 1635484372418L;
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(longL),ZoneOffset.of("+8"));
+        System.out.println(localDateTime.toString());
+    }
+
 }
