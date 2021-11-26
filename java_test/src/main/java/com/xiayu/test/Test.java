@@ -29,6 +29,9 @@ import java.util.TreeSet;
  * @create 2021-01-12-18:48
  */
 public  class Test {
+    public static void main(String[] args) {
+        System.getProperty("user.dir");
+    }
 
 
 

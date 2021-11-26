@@ -41,7 +41,6 @@ public class RestTemplateTest {
         try {
             response = restTemplate.postForEntity("https://new.carrierglobe.com/gw/mdm-wct-serve/wharf-ctn-trace/list", request, String.class);
 
-
             String body = response.getBody();
             JSONObject jsonObject = JSONObject.parseObject(body);
 

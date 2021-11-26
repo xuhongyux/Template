@@ -149,10 +149,8 @@ public class FileUtil {
         File fileDelete = new File(strFileName);
 
         if (!fileDelete.exists() || !fileDelete.isFile()) {
-            //  logger.debug(strFileName + "不存在!");
             return false;
         }
-
         return fileDelete.delete();
     }
 
