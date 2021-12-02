@@ -1,0 +1,14 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: schedulerx2
+
+  schedulerx2:
+    endpoint: addr-sh-internal.edas.aliyun.com
+    namespace: 5020c203-1bc3-45ac-8366-e4cec2bcbc98
+    groupId: test001
+    appKey: mG87usJUfHVJZM4W4nQLYw==
+
+
