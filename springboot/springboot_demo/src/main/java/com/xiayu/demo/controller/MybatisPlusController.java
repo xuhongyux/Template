@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xiayu.demo.api.IUserPlusService;
 import com.xiayu.demo.domain.UserPlus;
 import com.xiayu.demo.entity.ResponseResult;
 import com.xiayu.demo.mapper.UserPlusMapper;
@@ -29,14 +28,12 @@ import java.util.List;
 public class MybatisPlusController {
 
 
-    @Autowired
-    private IUserPlusService iUserPlusService;
+
 
 
     @Autowired
     UserPlusMapper userPlus;
 
-    IUserPlusService userPlusService;
 
     @ApiOperation(value = "查找", notes = "")
     @PostMapping("/select")
@@ -80,8 +77,8 @@ public class MybatisPlusController {
         userPlus.setAge(88);
         userPlus.setName("daidai");
         userPlus.setEmail("feiwu");
-        boolean save = this.iUserPlusService.save(userPlus);
-        return new ResponseResult(200,"更新接口" ,save);
+      //  boolean save = this.iUserPlusService.save(userPlus);
+        return new ResponseResult(200,"更新接口" ,null);
     }
 
 

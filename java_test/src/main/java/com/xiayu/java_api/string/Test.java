@@ -8,10 +8,10 @@ package com.xiayu.java_api.string;
  */
 public class Test {
     public static void main(String[] args) {
-        String a = "许洪雨";
-        String b = "许";
-        String s = subStrByStrAndLen(a, 3);
-        System.out.println(s);
+        String a = "";
+
+        String b = null;
+        System.out.println(a.equals(b));
 
     }
 
