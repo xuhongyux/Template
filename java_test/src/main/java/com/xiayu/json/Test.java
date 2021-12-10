@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.beust.jcommander.internal.Lists;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.xiayu.json.po.Admin;
+import com.xiayu.json.po.Role;
 
 import java.util.List;
 import java.util.Map;
@@ -19,11 +21,11 @@ public class Test {
 
 
     public static void main(String[] args) {
-        Role role = new Role();
+        Role role = new Role("roleName","1");
         List<String> objects = Lists.newArrayList();
         objects.add("user");
         objects.add("root");
-        role.setRoleName(objects);
+        //role.setRoleName(objects);
 
         List<Role> newArrayList = Lists.newArrayList();
         newArrayList.add(role);
@@ -45,8 +47,6 @@ public class Test {
         String processBodyBytes = JSONObject.toJSONString(jsonTrim);
         Admin admin1 = JSONObject.parseObject(processBodyBytes, Admin.class);
 
-
-   //     Admin admin2 = JSONObject.parseObject("{\"roles\":[{\"roleName\":[\"user\",\"root\"]}],\"userName\":\"xiayu\"}", Admin.class);
         System.out.println(admin1.toString());
     }
     /**

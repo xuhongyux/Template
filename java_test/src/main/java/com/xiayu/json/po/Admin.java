@@ -1,5 +1,6 @@
-package com.xiayu.json;
+package com.xiayu.json.po;
 
+import com.xiayu.json.po.Role;
 import lombok.Data;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public class Admin {
     String userName;
 
     List<Role> roles;
+
+
+    Object obj;
 }
