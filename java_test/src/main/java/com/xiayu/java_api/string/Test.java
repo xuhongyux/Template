@@ -1,17 +1,35 @@
 package com.xiayu.java_api.string;
 
 
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author xuhongyu
  * @create 2021-06-29 15:31
  */
 public class Test {
-    public static void main(String[] args) {
-        String a = "";
 
+    @org.junit.Test
+    public void nullTest() {
+        String a = "";
         String b = null;
-        System.out.println(a.equals(b));
+        String c = "  ";
+        String d = "1";
+
+
+        System.out.println("isBlank: " + StringUtils.isBlank(a));
+        System.out.println("isBlank: " + StringUtils.isBlank(b));
+        System.out.println("isBlank: " + StringUtils.isBlank(c));
+        System.out.println("isBlank: " + StringUtils.isBlank(d));
+        System.out.println("   ");
+        System.out.println("isEmpty: " + StringUtils.isEmpty(a));
+        System.out.println("isEmpty: " + StringUtils.isEmpty(b));
+        System.out.println("isEmpty: " + StringUtils.isEmpty(c));
+        System.out.println("isEmpty: " + StringUtils.isEmpty(d));
+    }
+
+    public static void main(String[] args) {
+
 
     }
 
@@ -28,22 +46,24 @@ public class Test {
 
     /**
      * String format
-     *
+     * <p>
      * format(String format, Object… args) 新字符串使用本地语言环境，制定字符串格式和参数生成格式化的新字符串。
      * format(Locale locale, String format, Object… args) 使用指定的语言环境，制定字符串格式和参数生成格式化的字符串。
      */
     @org.junit.Test
-    public void formatTest(){
-        String  str = "name = %s;";
-        String xiayu = String.format( str, "xiayu");
+    public void formatTest() {
+        String str = "name = %s;";
+        String xiayu = String.format(str, "xiayu");
         System.out.println(xiayu);
 
     }
+
     /**
      * 移除String前后空格
+     *
      * @return
      */
-    public static String stringTrim(String str){
+    public static String stringTrim(String str) {
         String trim = str.trim();
         return trim;
     }
