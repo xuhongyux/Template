@@ -13,6 +13,9 @@ public class StringFormat {
             "客户：%s，销售：%s，客户级别：%s  操作人：%s   操作时间：%i 年%i月 %i日/";
 
     public static void main(String[] args) {
+
+        int i=new Double("2").intValue();
+        System.out.println(i);
         // test git
     }
 }

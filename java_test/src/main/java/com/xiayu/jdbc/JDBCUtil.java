@@ -13,9 +13,9 @@ import java.sql.Statement;
  * @create 2021-06-21 15:01
  */
 public class JDBCUtil {
-    public static final String DB_URL = "jdbc:mysql://47.117.179.252:3306/intelligent_process_dev?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true";
-    public static final String DB_NAME = "debian-sys-maint";
-    public static final String DB_PWD = "CCSv1FHDzYMPWZOO";
+    public static final String DB_URL = "jdbc:mysql://110.40.181.41:3306/analysis?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true";
+    public static final String DB_NAME = "root";
+    public static final String DB_PWD = "root";
 
     static {
         try {
