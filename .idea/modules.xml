@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_design_patterns/springboot_design_patterns.iml" filepath="$PROJECT_DIR$/springboot/springboot_design_patterns/springboot_design_patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/springboot_feign.iml" filepath="$PROJECT_DIR$/springboot_feign/springboot_feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot/springboot_ignite/springboot_ignite.iml" filepath="$PROJECT_DIR$/springboot/springboot_ignite/springboot_ignite.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_jar/springboot_jar.iml" filepath="$PROJECT_DIR$/springboot_jar/springboot_jar.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" filepath="$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" filepath="$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" />

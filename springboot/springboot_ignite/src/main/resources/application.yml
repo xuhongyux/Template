@@ -1,0 +1,32 @@
+server:
+  port: 8099
+
+
+
+spring:
+  application:
+    name: ignite
+  profiles:
+    active: local
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    # 设置
+    multipart:
+      max-request-size: 1000MB
+      max-file-size: 100MB
+      enabled: true
+
+
+
+
+# 以下配置信息开通COS资源后得到
+cos:
+  secretId: AKIDJyVnqirFe9RfgUwNOAk7h6ZyIWUVtaHs
+  secretKey: kfT9g50mS1MZds1eCculT2XtxuhLhQ2A
+  regionName: ap-shanghai
+  bucketName: yzs-1259671659
+  keyName: excel

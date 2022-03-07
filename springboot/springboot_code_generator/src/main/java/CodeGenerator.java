@@ -20,13 +20,13 @@ import java.util.Scanner;
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
 public class CodeGenerator {
 
-    final static String packageName = "com.duckbillscm.tip.easipass";
+    final static String packageName = "com.sp.spengine";
     final static String project_path = "/Users/idea_code/Template/springboot/springboot_code_generator";
-    final static String schameName = "xiayu";
+    final static String schameName = "sp_process_v1.1";
     final static String author = "xuhongyu";
-    final static String dbpath = "110.40.181.41:3306";
+    final static String dbpath = "121.37.163.182:9834";
     final static String db_username = "root";
-    final static String db_password = "root";
+    final static String db_password = "qfyp@2021";
 
     /**
      * <p>
