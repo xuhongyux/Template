@@ -1,6 +1,6 @@
 spring:
   application:
-    name: springboot_jar
+    name: springboot-jar
   profiles:
     active: dev
   main:
@@ -8,6 +8,10 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.18.119.6:8848
 
 
 mybatis:
@@ -28,14 +32,14 @@ redis:
 ## 雪花算法参数
 SnowFlake:
   # 数据中心 5bit
- datacenterId: 10
- # 机器码 5bit
- machineId: 10
+  datacenterId: 10
+  # 机器码 5bit
+  machineId: 10
 
 
 logging:
   level:
-    com.lhh.myspringboot.dao.AdminDao : info
+    com.lhh.myspringboot.dao.AdminDao: info
 
 userpo:
   name: xiayu

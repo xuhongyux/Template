@@ -1,0 +1,25 @@
+#spring:
+#  application:
+#    name: gateway
+#  main:
+#    allow-bean-definition-overriding: true
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 172.18.119.9:8848 #Nacos配置中心地址
+#        file-extension: yaml #文件拓展格式
+#      #注册中心地址
+#      discovery:
+#          server-addr: 172.18.119.9:8848
+#
+#  profiles:
+#    active: dev
+#
+#
+## 这个地方独立配置, 是网关的数据, 代码 GatewayConfig.java 中读取被监听
+#nacos:
+#  gateway:
+#    route:
+#      config:
+#        data-id: gateway-router
+#        group: DEFAULT_GROUP

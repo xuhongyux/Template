@@ -1,6 +1,8 @@
 package com.xiayu.stream;
 
 import com.xiayu.admin.User;
+import com.xiayu.admin.UserPo;
+import org.junit.Test;
 import org.testng.collections.Maps;
 
 import java.util.ArrayList;
@@ -13,40 +15,13 @@ import java.util.stream.Collectors;
  * @create 2021-07-21 17:11
  */
 public class TestGroup {
-    public static void main(String[] args) {
-        List<String> objects = new ArrayList<>();
-        objects.add("许");
-        objects.add("123");
-        objects.add("xiayu");
-        objects.add("123");
-        objects.add("xiayu");
-        objects.add("许");
-        objects.add("xiayu");
-        objects.add("xiayu");
-        objects.add("许");
-        objects.add("xiayu");
-        objects.add("xiayu");
-        objects.add("许");
-        objects.add("xiayu");
-        objects.add("xiayu");
-        objects.add("许");
-        objects.add("xiayu");
-        objects.add("许");
-        objects.add("xiayu");
 
-        Map<String, Integer> objectObjectMap = Maps.newConcurrentMap();
-        for (String object : objects) {
-
-            if (objectObjectMap.containsKey(object)) {
-                Integer integer = objectObjectMap.get(object);
-                integer++;
-                objectObjectMap.put(object,integer);
-            }else {
-                objectObjectMap.put(object,1);
-            }
-        }
-
+    @Test
+    public void simpleGroup(){
+        List listUserPo = UserPo.getListUserPo();
+        Object collect = listUserPo.stream().collect(Collectors.groupingBy(UserPo::getAge));
         System.out.println();
+
     }
 
 

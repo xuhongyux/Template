@@ -14,7 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Person implements Serializable {
 
-    private static final long serialVersionUID = 6730932214694319012L;
+    private static final long serialVersionUID = -1L;
 
     public Long id;
 

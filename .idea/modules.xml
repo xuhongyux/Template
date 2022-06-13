@@ -2,23 +2,41 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/springcloud/commons/commons.iml" filepath="$PROJECT_DIR$/springcloud/commons/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/configuration/configuration.iml" filepath="$PROJECT_DIR$/springcloud/configuration/configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/configuration/configuration-log/configuration-log.iml" filepath="$PROJECT_DIR$/springcloud/configuration/configuration-log/configuration-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/configuration/configuration-swagger2/configuration-swagger2.iml" filepath="$PROJECT_DIR$/springcloud/configuration/configuration-swagger2/configuration-swagger2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/configuration/configuration-transaction/configuration-transaction.iml" filepath="$PROJECT_DIR$/springcloud/configuration/configuration-transaction/configuration-transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/consumers/consumers.iml" filepath="$PROJECT_DIR$/springcloud/consumers/consumers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/consumers/consumers-user/consumers-user.iml" filepath="$PROJECT_DIR$/springcloud/consumers/consumers-user/consumers-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/dependencies/dependencies.iml" filepath="$PROJECT_DIR$/springcloud/dependencies/dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/feign_consumer/feign_consumer.iml" filepath="$PROJECT_DIR$/springboot_feign/feign_consumer/feign_consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/feign_provider/feign_provider.iml" filepath="$PROJECT_DIR$/springboot_feign/feign_provider/feign_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/gateway/gateway.iml" filepath="$PROJECT_DIR$/springcloud/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_demo/java_demo.iml" filepath="$PROJECT_DIR$/java_demo/java_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_test/java_test.iml" filepath="$PROJECT_DIR$/java_test/java_test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/oauth2Service/oauth2Service.iml" filepath="$PROJECT_DIR$/springcloud/oauth2Service/oauth2Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/provider/provider.iml" filepath="$PROJECT_DIR$/springcloud/provider/provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/provider/provider-order-api/provider-order-api.iml" filepath="$PROJECT_DIR$/springcloud/provider/provider-order-api/provider-order-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/provider/provider-order-service/provider-order-service.iml" filepath="$PROJECT_DIR$/springcloud/provider/provider-order-service/provider-order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/provider/provider-user-api/provider-user-api.iml" filepath="$PROJECT_DIR$/springcloud/provider/provider-user-api/provider-user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/provider/provider-user-service/provider-user-service.iml" filepath="$PROJECT_DIR$/springcloud/provider/provider-user-service/provider-user-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot.iml" filepath="$PROJECT_DIR$/springboot/springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" filepath="$PROJECT_DIR$/springboot/springboot_FilterRegistration/springboot_FilterRegistration.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_code_generator/springboot_code_generator.iml" filepath="$PROJECT_DIR$/springboot/springboot_code_generator/springboot_code_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot/springboot_demo/springboot_demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot/springboot_design_patterns/springboot_design_patterns.iml" filepath="$PROJECT_DIR$/springboot/springboot_design_patterns/springboot_design_patterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_email/springboot_email.iml" filepath="$PROJECT_DIR$/springboot_email/springboot_email.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_ewechat/springboot_ewechat.iml" filepath="$PROJECT_DIR$/springboot_ewechat/springboot_ewechat.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_feign/springboot_feign.iml" filepath="$PROJECT_DIR$/springboot_feign/springboot_feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_ignite/springboot_ignite.iml" filepath="$PROJECT_DIR$/springboot/springboot_ignite/springboot_ignite.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_jar/springboot_jar.iml" filepath="$PROJECT_DIR$/springboot_jar/springboot_jar.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" filepath="$PROJECT_DIR$/springboot/springboot_log/springboot_log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_mode/springboot_mode.iml" filepath="$PROJECT_DIR$/springboot_mode/springboot_mode.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" filepath="$PROJECT_DIR$/springboot/springboot_mvc/springboot_mvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_schedulerx2/springboot_schedulerx2.iml" filepath="$PROJECT_DIR$/springboot/springboot_schedulerx2/springboot_schedulerx2.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_template/springboot_template.iml" filepath="$PROJECT_DIR$/springboot/springboot_template/springboot_template.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot/springboot_test/springboot_test.iml" filepath="$PROJECT_DIR$/springboot/springboot_test/springboot_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/springcloud.iml" filepath="$PROJECT_DIR$/springcloud/springcloud.iml" />
     </modules>
   </component>
 </project>

@@ -10,6 +10,24 @@ import org.apache.commons.lang3.StringUtils;
 public class Test {
 
     @org.junit.Test
+    public void splitTest(){
+        String a = "导出模版格式化-发票模版演示.xls";
+        String[] split = a.split("\\.");
+        System.out.println(split);
+
+    }
+
+    @org.junit.Test
+    public void indexOfTest(){
+        String a= "xyuadfew{{}sdf";
+        int i = a.indexOf("{");
+        System.out.println(i);
+
+        int j = a.indexOf("{{");
+        System.out.println(j);
+    }
+
+    @org.junit.Test
     public void nullTest() {
         String a = "";
         String b = null;

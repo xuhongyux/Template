@@ -3,10 +3,12 @@ package com.xiayu.utils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.xiayu.admin.User;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +32,47 @@ public class MapperUtils {
 
     private static DecimalFormat df = new DecimalFormat("######0.##");
 
+
+    public static void main(String[] args) {
+        User user = new User();
+        MapperUtils.isNotEmptyBean(user);
+    }
+    /**
+     * 判断对象是否为空
+     * @param obj
+     * @return
+     */
+    public static Boolean isNotEmptyBean(Object obj) {
+
+        Boolean flag = false;
+
+        try {
+            if (null != obj){
+
+                //得到类对象
+                Class<?> c = (Class<?>) obj.getClass();
+
+                //得到属性集合
+                Field[] fs = c.getDeclaredFields();
+
+                //遍历属性
+
+                for (Field f : fs) {
+
+                    //设置属性是可以访问的(私有的也可以)
+                    f.setAccessible(true);
+
+                    //得到此属性的值
+                    Object val = f.get(obj);
+
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+        return flag;
+    }
     /**
      * 对象是否为空
      * @param obj

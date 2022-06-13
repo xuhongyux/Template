@@ -30,7 +30,9 @@ import java.util.TreeSet;
  */
 public  class Test {
     public static void main(String[] args) {
-        System.getProperty("user.dir");
+
+        double a= 1+1*10;
+        System.out.println(a);
     }
 
 

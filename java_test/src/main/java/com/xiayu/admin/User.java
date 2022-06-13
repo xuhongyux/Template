@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 public class User {
-    private String userName;
+    private String userName = "xiayu";
 
     private List<Root> rootList;
 
@@ -30,8 +30,4 @@ public class User {
         return "sfasdfas";
     }
 
-    public static void main(String[] args) {
-        User xiuyuy = new User("xiuyuy");
-        System.out.println(xiuyuy.toString());
-    }
 }

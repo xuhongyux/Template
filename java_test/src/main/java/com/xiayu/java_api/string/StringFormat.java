@@ -1,5 +1,7 @@
 package com.xiayu.java_api.string;
 
+import org.junit.Test;
+
 /**
  * @author xuhongyu
  * @describe
@@ -17,5 +19,12 @@ public class StringFormat {
         int i=new Double("2").intValue();
         System.out.println(i);
         // test git
+    }
+
+    @Test
+    public void trimTest(){
+        String a = "fsaf   ";
+       String b =  a.trim();
+        System.out.println(b);
     }
 }
